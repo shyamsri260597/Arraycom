@@ -104,16 +104,16 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden bg-[#020617] border-t border-white/5 text-white px-6 py-6 space-y-4 md:hidden">
             <a href="Index.html" class="block py-2 border-b border-white/5">Home</a>
-            <a href="about.html" class="block py-2 border-b border-white/5 text-accent">About</a>
+            <a href="about.html" class="block py-2 border-b border-white/5">About</a>
             <div>
-                <button onclick="toggleMobileDropdown()" class="flex justify-between w-full py-2 border-b border-white/5">
+                <button onclick="toggleMobileDropdown()" class="flex justify-between text-accent w-full py-2 border-b border-white/5">
                     Divisions <span id="dropArrow">▾</span>
                 </button>
                 <div id="mobileDropdown" class="hidden mt-2 pl-4 space-y-2 text-sm text-gray-400">
                     <a href="system-integration.html" class="block py-1 hover:text-accent">System Integration</a>
                     <a href="pcb.html" class="block py-1 hover:text-accent">PCB Manufacturing</a>
                     <a href="tfm.html" class="block py-1 hover:text-accent">Thick Film Materials</a>
-                    <a href="solar.html" class="block py-1 hover:text-accent">Solar Power</a>
+                    <a href="solar.html" class="block py-1 text-accent">Solar Power</a>
                 </div>
             </div>
             <a href="contact.html" class="block py-2">Contact</a>
@@ -374,6 +374,17 @@
 
     <!-- ================= SCRIPT ================= -->
     <script>
+         document.getElementById('menuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        function toggleMobileDropdown() {
+            const d = document.getElementById('mobileDropdown');
+            const a = document.getElementById('dropArrow');
+            d.classList.toggle('hidden');
+            a.textContent = d.classList.contains('hidden') ? '▾' : '▴';
+        }
+
         const elements = document.querySelectorAll('.fade-up');
 
         const observer = new IntersectionObserver(entries => {
