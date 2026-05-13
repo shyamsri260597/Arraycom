@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Integration | Arraycom</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Variables (home page tokens) ── */
+    :root {
+      --navy:           #080E18;
+      --teal:           #4EC9C9;
+      --blue:           #3A7AB8;
+      --amber:          #E8A020;
+      --text:           #D0DFF0;
+      --muted:          #3D5470;
+      --brand-primary:  var(--teal);
+      --bg-main:        var(--navy);
+      --text-main:      var(--text);
+      --border:         rgba(255,255,255,0.08);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Mona Sans", sans-serif;
+      background: #020617;
+      color: white;
+    }
+
+    /* ────────────────────────────────
+       HEADER  (identical to home)
+    ──────────────────────────────── */
+    header {
+      background: rgba(11,18,32,0.78);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      padding: 0.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      z-index: 10000;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo img { height: 55px; width: auto; display: block; }
+
+    .nav-toggle { display: none; }
+
+    .nav-toggle-label { display: none; cursor: pointer; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      padding: 15px 0;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .cta-btn {
+      background: var(--teal);
+      color: var(--navy) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+    }
+
+    /* Dropdown */
+    .has-dropdown { position: relative; }
+
+    .has-dropdown > a::after {
+      content: " ▾";
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(8,14,24,0.97);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      min-width: 240px;
+      padding: 8px 0;
+      list-style: none;
+      z-index: 9999;
+      display: block;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    .has-dropdown:hover .dropdown {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+      visibility: visible;
+    }
+
+    .dropdown li a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .dropdown li a:hover {
+      color: var(--teal);
+      background: rgba(78,201,201,0.06);
+      border-left-color: var(--teal);
+      padding-left: 26px;
+    }
+
+    .dropdown li:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+    /* active page indicator */
+    .nav-active { color: var(--teal) !important; }
+
+    /* ────────────────────────────────
+       HERO
+    ──────────────────────────────── */
+    .v-hero {
+      position: relative;
+      width: 100%;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: url('Images/system-slide-1.png') center 60% / cover no-repeat;
+    }
+
+    /* grid texture */
+    .v-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(78,201,201,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(78,201,201,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 1;
+    }
+
+    .v-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(8,14,24,0.97) 0%,
+        rgba(8,14,24,0.80) 50%,
+        rgba(8,14,24,0.35) 100%
+      );
+      z-index: 2;
+    }
+
+    .v-hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 750px;
+      padding: 120px 5% 80px 6%;
+    }
+
+    .v-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+      padding: 6px 14px;
+      border: 1px solid rgba(78,201,201,0.25);
+      border-radius: 20px;
+      background: rgba(78,201,201,0.06);
+    }
+
+    .blink-dot {
+      width: 7px; height: 7px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform:scale(1); opacity:1; }
+      50%      { transform:scale(1.6); opacity:0.4; }
+    }
+
+    .v-hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .v-hero h1 em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .v-hero p {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--text);
+      max-width: 540px;
+      line-height: 1.7;
+      opacity: 0.85;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary { background: var(--teal); color: var(--navy); }
+    .btn-primary:hover { background: #3ab8b8; }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.3); color:#fff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
+
+    /* hero stat bar */
+    .v-hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+
+    .v-hero-stat h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .v-hero-stat p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ────────────────────────────────
+       ABOUT DIVISION
+    ──────────────────────────────── */
+    .v-about {
+      padding: 100px 5%;
+      background: var(--bg-main);
+    }
+
+    .v-about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .v-about-img {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+      box-shadow:
+        0 0 0 1px rgba(78,201,201,0.2),
+        0 0 40px rgba(78,201,201,0.1),
+        0 30px 60px rgba(0,0,0,0.5);
+    }
+
+    .v-about-img img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* corner accents */
+    .v-about-img::before {
+      content:"";
+      position:absolute; top:-1px; left:-1px;
+      width:70px; height:70px;
+      border-top: 2px solid var(--teal);
+      border-left: 2px solid var(--teal);
+      border-radius: 20px 0 0 0;
+      z-index:2;
+    }
+    .v-about-img::after {
+      content:"";
+      position:absolute; bottom:-1px; right:-1px;
+      width:70px; height:70px;
+      border-bottom: 2px solid var(--teal);
+      border-right: 2px solid var(--teal);
+      border-radius: 0 0 20px 0;
+      z-index:2;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .v-about-text h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .v-about-text p {
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+
+    .v-about-highlight {
+      margin-top: 24px;
+      padding: 14px 18px;
+      border-left: 3px solid var(--teal);
+      background: rgba(78,201,201,0.05);
+      border-radius: 0 10px 10px 0;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* capability card */
+    .v-about-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .v-about-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+
+    .v-about-card ul { list-style:none; padding:0; }
+
+    .v-about-card li {
+      color: var(--text);
+      padding: 8px 0 8px 20px;
+      position: relative;
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .v-about-card li:last-child { border-bottom: none; }
+
+    .v-about-card li::before {
+      content:"";
+      position:absolute; left:0; top:16px;
+      width:6px; height:6px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    /* ────────────────────────────────
+       SERVICES
+    ──────────────────────────────── */
+    .v-services {
+      padding: 100px 5%;
+      background: #020617;
+    }
+
+    .v-services-header {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    .v-services-header h2 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .v-services-header p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .v-services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .v-service-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .v-service-card::before {
+      content:"";
+      position:absolute; top:0; left:0; right:0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .v-service-card:hover {
+      border-color: rgba(78,201,201,0.3);
+      background: rgba(78,201,201,0.04);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(78,201,201,0.08);
+    }
+
+    .v-service-card:hover::before { opacity:1; }
+
+    .v-service-card .card-icon {
+      width: 42px; height: 42px;
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(78,201,201,0.08);
+      border: 1px solid rgba(78,201,201,0.15);
+      border-radius: 10px;
+    }
+
+    .v-service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .v-service-card p {
+      font-size: 0.9rem;
+      color: var(--text);
+      opacity: 0.75;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .v-tags { display:flex; flex-wrap:wrap; gap:6px; }
+
+    .v-tag {
+      font-size: 10px;
+      color: var(--teal);
+      background: rgba(78,201,201,0.07);
+      border: 1px solid rgba(78,201,201,0.14);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ────────────────────────────────
+       GET IN TOUCH
+    ──────────────────────────────── */
+    .v-contact {
+      padding: 100px 5%;
+      background: var(--bg-main);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .v-contact::before {
+      content:"";
+      position:absolute; top:-200px; right:-200px;
+      width:600px; height:600px;
+      background: radial-gradient(circle, rgba(78,201,201,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .v-contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .v-contact-left h2 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .v-contact-left > p {
+      color: var(--text);
+      opacity: 0.75;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .v-contact-info { display:flex; flex-direction:column; gap:20px; }
+
+    .v-contact-item { display:flex; align-items:flex-start; gap:14px; }
+
+    .v-contact-item-icon {
+      width:42px; height:42px;
+      background: rgba(78,201,201,0.08);
+      border: 1px solid rgba(78,201,201,0.15);
+      border-radius: 10px;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+      font-size: 1rem;
+    }
+
+    .v-contact-item-text h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .v-contact-item-text p {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Form */
+    .v-contact-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .v-form-group { margin-bottom: 20px; }
+
+    .v-form-group label {
+      display:block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .v-form-group input,
+    .v-form-group textarea,
+    .v-form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: "Mona Sans", sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      outline: none;
+      appearance: none;
+    }
+
+    .v-form-group input:focus,
+    .v-form-group textarea:focus,
+    .v-form-group select:focus {
+      border-color: var(--teal);
+      background: rgba(78,201,201,0.04);
+    }
+
+    .v-form-group textarea { resize:vertical; min-height:120px; }
+    .v-form-group select option { background: var(--navy); }
+
+    .v-form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+    .v-form-submit {
+      width:100%;
+      padding: 14px;
+      background: var(--teal);
+      color: var(--navy);
+      border: none;
+      border-radius: 10px;
+      font-family: "Mona Sans", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 6px;
+    }
+
+    .v-form-submit:hover {
+      background: #3ab8b8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(78,201,201,0.25);
+    }
+
+    /* ────────────────────────────────
+       FOOTER  (identical to home)
+    ──────────────────────────────── */
+    .site-footer {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 30px;
+      color: var(--text);
+    }
+
+    .footer-container { max-width:1200px; margin:0 auto; padding:0 5%; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+      color: var(--teal);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .footer-col ul { list-style:none; padding:0; margin:0; }
+    .footer-col ul li { margin-bottom:12px; }
+
+    .footer-col a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    .footer-col a:hover { color:var(--teal); opacity:1; padding-left:5px; }
+
+    .footer-logo { height:50px; margin-bottom:16px; }
+
+    .footer-col.info p { font-size:14px; color:var(--text); opacity:0.7; line-height:1.7; }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing:1px;
+    }
+
+    /* ────────────────────────────────
+       RECENT PROJECTS
+    ──────────────────────────────── */
+    .v-projects {
+      padding: 100px 5%;
+      background: var(--bg-main);
+    }
+
+    .v-projects-header {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    .v-projects-header h2 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .v-projects-header p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .v-projects-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* last item (7th) spans full width centered feel */
+    .v-projects-grid .v-project-item:last-child {
+      grid-column: span 3;
+      max-width: 500px;
+    }
+
+    .v-project-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .v-project-item::before {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .v-project-item:hover {
+      border-color: rgba(78,201,201,0.25);
+      background: rgba(78,201,201,0.04);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    }
+
+    .v-project-item:hover::before { opacity: 1; }
+
+    .v-project-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: rgba(78,201,201,0.15);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 44px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .v-project-body h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .v-project-body p {
+      font-size: 0.875rem;
+      color: var(--text);
+      opacity: 0.7;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .v-project-scale {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal);
+      background: rgba(78,201,201,0.08);
+      border: 1px solid rgba(78,201,201,0.18);
+      padding: 3px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 992px) {
+      .v-projects-grid { grid-template-columns: repeat(2,1fr); }
+      .v-projects-grid .v-project-item:last-child { grid-column: span 2; max-width: 100%; }
+    }
+
+    @media (max-width: 576px) {
+      .v-projects-grid { grid-template-columns: 1fr; }
+      .v-projects-grid .v-project-item:last-child { grid-column: span 1; }
+    }
+
+    /* ────────────────────────────────
+       SCROLL ANIMATIONS
+    ──────────────────────────────── */
+    .fade-up {
+      opacity:0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+
+    /* ────────────────────────────────
+       MOBILE NAV
+    ──────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-toggle-label {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 10px 0;
+        cursor: pointer;
+        margin-left: auto;
+      }
+
+      .nav-toggle-label span,
+      .nav-toggle-label span::before,
+      .nav-toggle-label span::after {
+        display:block;
+        background: var(--teal);
+        height: 2px; width: 25px;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .nav-toggle-label span::before { content:''; position:absolute; top:-8px; }
+      .nav-toggle-label span::after  { content:''; position:absolute; top:8px; }
+
+      .nav-links {
+        position:fixed; top:0; right:-100%;
+        width:100%; height:100vh;
+        background: var(--navy);
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        transition: 0.4s ease-in-out;
+      }
+
+      .nav-toggle:checked ~ nav .nav-links { right:0; }
+
+      .nav-toggle:checked ~ .nav-toggle-label span { background:transparent; }
+      .nav-toggle:checked ~ .nav-toggle-label span::before { transform:rotate(45deg); top:0; }
+      .nav-toggle:checked ~ .nav-toggle-label span::after  { transform:rotate(-45deg); top:0; }
+
+      .dropdown {
+        position:static;
+        opacity:1; visibility:visible;
+        transform:none;
+        pointer-events:all;
+        background: rgba(255,255,255,0.04);
+        border-radius:8px;
+        display:none;
+        margin-top:8px;
+      }
+
+      .has-dropdown.open .dropdown { display:block; }
+
+      /* RESPONSIVE LAYOUT */
+      .v-about-inner,
+      .v-contact-inner { grid-template-columns:1fr; gap:40px; }
+
+      .v-services-grid { grid-template-columns:1fr; }
+
+      .v-form-row { grid-template-columns:1fr; }
+
+      .footer-grid { grid-template-columns:1fr; gap:30px; }
+
+      .footer-bottom { flex-direction:column; text-align:center; gap:10px; }
+
+      .v-hero-stats { gap:24px; }
+
+      .v-contact-form { padding:24px; }
+    }
+
+    @media (max-width: 992px) {
+      .v-services-grid { grid-template-columns:repeat(2,1fr); }
+      .v-about-inner  { grid-template-columns:1fr; gap:40px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header>
+    <div class="logo">
+      <img src="/Images/logowhite.png" alt="Arraycom">
+    </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" style="display:none">
+    <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+
+    <nav>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="#" class="nav-active">VERTICALS</a>
+          <ul class="dropdown">
+            <li><a href="system-integration.html">System Integration</a></li>
+            <li><a href="pcb.html">PCB Manufacturing</a></li>
+            <li><a href="tfm.html">Thick Film Materials</a></li>
+            <li><a href="solar.html">Solar &amp; Clean Energy</a></li>
+            <li><a href="broadcast.html">Broadcast &amp; Terrestrial</a></li>
+            <li><a href="satellite.html">Satellite Communications</a></li>
+          </ul>
+        </li>
+        <li><a href="Index.html#projects">PROJECTS</a></li>
+        <li><a href="Index.html#about">ABOUT US</a></li>
+        <li><a href="#contact" class="cta-btn">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="v-hero">
+    <div class="v-hero-overlay"></div>
+    <div class="v-hero-content">
+
+      <div class="v-hero-tag">
+        <span class="blink-dot"></span>
+        System Integration Division
+      </div>
+
+      <h1>
+        India's Trusted<br>
+        <em>System Integrator</em>
+      </h1>
+
+      <p>
+        End-to-end integration of complex technologies into unified, mission-critical systems — across broadcast, satellite, defence, surveillance and networking for government and enterprise.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+
+      <div class="v-hero-stats">
+        <div class="v-hero-stat">
+          <h3>32+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="v-hero-stat">
+          <h3>500+</h3>
+          <p>Projects Delivered</p>
+        </div>
+        <div class="v-hero-stat">
+          <h3>Pan-India</h3>
+          <p>6 City Presence</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section class="v-about" id="about">
+    <div class="v-about-inner">
+
+      <div class="v-about-img fade-up">
+        <img src="Images/integration-bg.jpg" alt="System Integration — Arraycom">
+      </div>
+
+      <div class="v-about-text fade-up">
+        <span class="section-tag">About the Division</span>
+        <h2>System Integration at Arraycom</h2>
+
+        <p>Arraycom's Systems Integration Division specializes in designing, engineering, and delivering complete turnkey solutions across Audio-Video Broadcasting, communication, surveillance, intelligence, and networking domains.</p>
+
+        <p>With strong technical expertise and decades of experience in professional electronics, we integrate multiple technologies — hardware, software, RF systems, sensors and communication networks — into seamless, reliable, and mission-ready solutions for Prasar Bharati (Doordarshan &amp; All India Radio), defence, government and industrial clients.</p>
+
+        <div class="v-about-highlight">
+          Known for robust engineering capability, precision execution, and customized systems tailored to the specific needs of government and defence clients.
+        </div>
+
+        <div class="v-about-card">
+          <h3>Core Capabilities</h3>
+          <ul>
+            <li>System Design &amp; Engineering</li>
+            <li>Component Integration</li>
+            <li>Deployment &amp; Installation</li>
+            <li>Testing &amp; Validation</li>
+            <li>Training &amp; Support</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ SERVICES ══════════════ -->
+  <section class="v-services" id="services">
+
+    <div class="v-services-header fade-up">
+      <span class="section-tag">What We Offer</span>
+      <h2>Our Services</h2>
+      <p>Comprehensive integration services across the full project lifecycle.</p>
+    </div>
+
+    <div class="v-services-grid">
+
+      <div class="v-service-card fade-up">
+        <div class="card-icon">📺</div>
+        <h3>Audio-Video Broadcast &amp; RF Solutions</h3>
+        <p>Earth stations, audio-video compression, RF &amp; monitoring chains, receive-only radio terminals, RF combiners, studio integration, signal routing, network infrastructure and transmission systems.</p>
+        <div class="v-tags">
+          <span class="v-tag">Earth Stations</span>
+          <span class="v-tag">RF Chains</span>
+          <span class="v-tag">Studio Integration</span>
+          <span class="v-tag">RF Combiners</span>
+        </div>
+      </div>
+
+      <div class="v-service-card fade-up">
+        <div class="card-icon">📡</div>
+        <h3>Satellite Communication Systems</h3>
+        <p>Design and installation of VSAT networks, RF chains, parabolic dish antenna systems up to 11.3m, and complete teleport solutions for broadcast, defence and government.</p>
+        <div class="v-tags">
+          <span class="v-tag">VSAT</span>
+          <span class="v-tag">Parabolic Dish</span>
+          <span class="v-tag">Teleport</span>
+          <span class="v-tag">RF Chains</span>
+        </div>
+      </div>
+
+      <div class="v-service-card fade-up">
+        <div class="card-icon">📶</div>
+        <h3>Terrestrial Communication Systems</h3>
+        <p>Microwave links, radio systems, DVBT2 analog and digital transmitters for national and regional broadcast networks across India.</p>
+        <div class="v-tags">
+          <span class="v-tag">Microwave Links</span>
+          <span class="v-tag">DVBT2</span>
+          <span class="v-tag">Digital Transmitters</span>
+          <span class="v-tag">Analog</span>
+        </div>
+      </div>
+
+      <div class="v-service-card fade-up">
+        <div class="card-icon">🛡️</div>
+        <h3>Turnkey Command &amp; Control Systems</h3>
+        <p>End-to-end design and integration of operational control centres — hardware, software, RF systems and communication networks built into reliable, mission-ready solutions.</p>
+        <div class="v-tags">
+          <span class="v-tag">Control Centres</span>
+          <span class="v-tag">HW-SW Integration</span>
+          <span class="v-tag">Defence</span>
+          <span class="v-tag">Government</span>
+        </div>
+      </div>
+
+      <div class="v-service-card fade-up">
+        <div class="card-icon">🔧</div>
+        <h3>Installation &amp; Commissioning</h3>
+        <p>Complete site execution including civil, electrical, mechanical and electronics works — coordinated by our experienced project management teams across India.</p>
+        <div class="v-tags">
+          <span class="v-tag">Civil Works</span>
+          <span class="v-tag">Electrical</span>
+          <span class="v-tag">Pan-India</span>
+          <span class="v-tag">Turnkey</span>
+        </div>
+      </div>
+
+      <div class="v-service-card fade-up">
+        <div class="card-icon">🔄</div>
+        <h3>AMC &amp; O&amp;M Support</h3>
+        <p>Post-commissioning annual maintenance contracts and operations &amp; maintenance support — keeping your systems running with trained rapid-response teams.</p>
+        <div class="v-tags">
+          <span class="v-tag">AMC</span>
+          <span class="v-tag">O&amp;M</span>
+          <span class="v-tag">Training</span>
+          <span class="v-tag">24/7 Support</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ RECENT PROJECTS ══════════════ -->
+  <section class="v-projects" id="projects">
+
+    <div class="v-projects-header fade-up">
+      <span class="section-tag">Track Record</span>
+      <h2>Recent Major Projects</h2>
+      <p>Delivered across India for Prasar Bharati, defence and government organisations.</p>
+    </div>
+
+    <div class="v-projects-grid">
+
+      <div class="v-project-item fade-up">
+        <div class="v-project-number">01</div>
+        <div class="v-project-body">
+          <h3>DVBT2 Transmitter</h3>
+          <p>Supply, installation and commissioning of DVBT2 digital transmitters across India.</p>
+          <span class="v-project-scale">22 Sites</span>
+        </div>
+      </div>
+
+      <div class="v-project-item fade-up">
+        <div class="v-project-number">02</div>
+        <div class="v-project-body">
+          <h3>Earth Stations</h3>
+          <p>End-to-end earth station infrastructure — dish antennas, RF chains, modems and NMS.</p>
+          <span class="v-project-scale">14 Sites</span>
+        </div>
+      </div>
+
+      <div class="v-project-item fade-up">
+        <div class="v-project-number">03</div>
+        <div class="v-project-body">
+          <h3>FM Combiners</h3>
+          <p>High-power FM combining systems for multi-transmitter broadcast sites.</p>
+          <span class="v-project-scale">6 Sites</span>
+        </div>
+      </div>
+
+      <div class="v-project-item fade-up">
+        <div class="v-project-number">04</div>
+        <div class="v-project-body">
+          <h3>Receive Only Terminals</h3>
+          <p>VSAT and satellite receive-only terminals for AIR and Doordarshan distribution networks.</p>
+          <span class="v-project-scale">100+ Sites</span>
+        </div>
+      </div>
+
+      <div class="v-project-item fade-up">
+        <div class="v-project-number">05</div>
+        <div class="v-project-body">
+          <h3>6-Bay FM Antenna Systems</h3>
+          <p>Design, supply and installation of 6-bay FM antenna systems for high-power broadcast coverage.</p>
+          <span class="v-project-scale">33 Sites</span>
+        </div>
+      </div>
+
+      <div class="v-project-item fade-up">
+        <div class="v-project-number">06</div>
+        <div class="v-project-body">
+          <h3>2-Bay FM Antenna Systems</h3>
+          <p>2-bay FM antenna installations for regional and community broadcast stations across India.</p>
+          <span class="v-project-scale">100 Sites</span>
+        </div>
+      </div>
+
+      <div class="v-project-item fade-up">
+        <div class="v-project-number">07</div>
+        <div class="v-project-body">
+          <h3>DSNG Van — Akashvani New Delhi</h3>
+          <p>Supply and commissioning of DSNG satellite news gathering vehicle for All India Radio, New Delhi.</p>
+          <span class="v-project-scale">Flagship Project</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section class="v-contact" id="contact">
+    <div class="v-contact-inner">
+
+      <div class="v-contact-left fade-up">
+        <span class="section-tag">Get in Touch</span>
+        <h2>Talk to Our<br>Integration Team</h2>
+        <p>Have a project requirement or need a technical consultation? Our system integration team is ready to scope, design and deliver the right solution for your organisation.</p>
+
+        <div class="v-contact-info">
+          <div class="v-contact-item">
+            <div class="v-contact-item-icon">📍</div>
+            <div class="v-contact-item-text">
+              <h4>Headquarters</h4>
+              <p>GIDC Electronic Zone,<br>Gandhinagar, Gujarat — 382 028</p>
+            </div>
+          </div>
+          <div class="v-contact-item">
+            <div class="v-contact-item-icon">📞</div>
+            <div class="v-contact-item-text">
+              <h4>Phone</h4>
+              <p>+91 93271 35128</p>
+            </div>
+          </div>
+          <div class="v-contact-item">
+            <div class="v-contact-item-icon">✉️</div>
+            <div class="v-contact-item-text">
+              <h4>Email</h4>
+              <p>satcom@arraycom.co.in</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="v-contact-form fade-up">
+        <div class="v-form-row">
+          <div class="v-form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Raj">
+          </div>
+          <div class="v-form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Sharma">
+          </div>
+        </div>
+
+        <div class="v-form-group">
+          <label>Organisation</label>
+          <input type="text" placeholder="Your company or department">
+        </div>
+
+        <div class="v-form-group">
+          <label>Email</label>
+          <input type="email" placeholder="raj@organisation.in">
+        </div>
+
+        <div class="v-form-group">
+          <label>Service of Interest</label>
+          <select>
+            <option value="" disabled selected>Select a service</option>
+            <option>System Integration</option>
+            <option>Installation &amp; Commissioning</option>
+            <option>Satellite &amp; Broadcast Integration</option>
+            <option>Defence &amp; Surveillance Systems</option>
+            <option>Monitoring &amp; Control Software</option>
+            <option>AMC &amp; O&amp;M Support</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="v-form-group">
+          <label>Message</label>
+          <textarea placeholder="Briefly describe your project or requirement..."></textarea>
+        </div>
+
+        <button class="v-form-submit">Send Enquiry →</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <div class="footer-col info">
+          <img src="/Images/logowhite.png" alt="Arraycom">" alt="Arraycom" class="footer-logo">
+          <p>Engineering excellence since 1992. India's premier System Integrator in Professional Electronics.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Divisions</h4>
+          <ul>
+            <li><a href="system-integration.html">System Integration</a></li>
+            <li><a href="pcb.html">PCB Manufacturing</a></li>
+            <li><a href="tfm.html">Thick Film Materials</a></li>
+            <li><a href="solar.html">Solar Power Division</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Index.html#about">About Us</a></li>
+            <li><a href="Index.html#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Arraycom (India) Ltd. All rights reserved.</p>
+        <p>GIDC Electronic Zone, Gandhinagar, Gujarat, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile dropdown toggle
+    document.querySelectorAll('.has-dropdown > a').forEach(link => {
+      link.addEventListener('click', e => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          link.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    // Scroll fade-up
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    fadeEls.forEach(el => fadeObs.observe(el));
+  </script>
+
+</body>
+</html>

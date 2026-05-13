@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Communications | Arraycom India Ltd.</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Mona Sans", sans-serif;
+            background: #020817;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =================================
+           HERO SECTION
+        ================================= */
+
+        .vertical-hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 6%;
+            overflow: hidden;
+
+            background:
+                linear-gradient(rgba(2, 8, 23, 0.82),
+                    rgba(2, 8, 23, 0.88)),
+                url('/Images/hero_satellite.jpeg') center/cover;
+        }
+
+        .vertical-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top right,
+                    rgba(0, 191, 255, 0.15),
+                    transparent 35%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.7rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #cbd5e1;
+        }
+
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00bfff;
+        }
+
+        .vertical-hero h1 {
+            font-size: 4rem;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .vertical-hero p {
+            max-width: 700px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        /* =================================
+           ABOUT VERTICAL
+        ================================= */
+
+        .vertical-about {
+            padding: 4rem 2%;
+            background:var(--navygradient)
+                
+    ;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+            min-height: 550px;
+        }
+
+        .section-tag {
+            color: #00bfff;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .section-title span {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 14px;
+        }
+
+        .section-title span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4px;
+            background: #00bfff;
+        }
+
+        .about-content p {
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 2;
+            margin-bottom: 1.5rem;
+        }
+
+        /* =================================
+           SERVICES
+        ================================= */
+
+        .services-section {
+            padding: 4rem 6%;
+            background: #020817;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 191, 255, 0.3);
+        }
+
+        .service-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #00bfff;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.8;
+        }
+
+        /* =================================
+           PROJECTS
+        ================================= */
+
+        .projects-section {
+            padding: 7rem 6%;
+            background:
+                linear-gradient(to bottom,
+                    #020817,
+                    #06152d);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            min-height: 420px;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top,
+                    rgba(0, 0, 0, 0.85),
+                    rgba(0, 0, 0, 0.1));
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .project-overlay h4 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-overlay p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+        }
+
+        /* =================================
+           CONTACT SECTION
+        ================================= */
+
+        .contact-section {
+            padding: 7rem 6%;
+            background: #020617;
+        }
+
+        .contact-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            padding: 4rem;
+            border-radius: 30px;
+
+            background:
+                linear-gradient(to right,
+                    rgba(255, 255, 255, 0.04),
+                    rgba(255, 255, 255, 0.02));
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.9;
+            margin-top: 1.5rem;
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            padding: 1rem 1.5rem;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        /* =================================
+           RESPONSIVE
+        ================================= */
+
+        @media(max-width:1100px) {
+
+            .about-grid,
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vertical-hero h1 {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .vertical-hero {
+                min-height: 70vh;
+                padding: 7rem 1.5rem;
+            }
+
+            .vertical-hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.4rem;
+            }
+
+            .vertical-about,
+            .services-section,
+            .projects-section,
+            .contact-section {
+                padding: 5rem 1.5rem;
+            }
+
+            .contact-box {
+                padding: 2rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =================================
+         HEADER
+    ================================= -->
+
+    <!-- USE SAME HEADER FROM ABOUT PAGE -->
+
+     <header>
+        <div class="logo">
+            <!-- Your Logo or Text here -->
+            <img src="/Images/logowhite.png" alt="Arraycom">
+        </div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav-links">
+                <li class="has-dropdown">
+                    <a href="#">VERTICALS</a>
+                    <ul class="dropdown">
+                        <li><a href="/verticals/system-integration.html">Satellite Communications</a></li>
+                        <li><a href="/verticals/broadcast.html">Broadcast & Terrestrial</a></li>
+                        <li><a href="/verticals/defence.html">Command, Control & Surveillance</a></li>
+                        <li><a href="/verticals/solar.html">Solar & Clean Energy</a></li>
+                        <li><a href="/verticals/thickfilm.html">Thick Film Materials</a></li>
+                        <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#" class="cta-btn">CONTACT US</a></li>
+            </ul>
+        </nav>
+        </div>
+
+    </header>
+
+    <!-- =================================
+         HERO
+    ================================= -->
+
+    <section class="vertical-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                <span class="hero-dot"></span>
+                Arraycom Vertical
+            </div>
+
+            <h1>
+                Satellite<br>
+                <span style=" color: var(--teal);">Communications</span>
+            </h1>
+
+            <p>
+                Delivering mission-critical satellite communication infrastructure,
+                VSAT systems, teleport integration and advanced RF solutions for
+                enterprise, defence and broadcast applications across India.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+  <!-- =================================
+     ABOUT VERTICAL
+================================= -->
+
+<section class="vertical-about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <!-- IMAGE -->
+            <div class="about-image">
+                <img src="/Images/3.png" alt="Satellite Communications">
+            </div>
+
+            <!-- CONTENT -->
+            <div class="about-content">
+
+                <p class="section-tag">
+                    About Satellite Communication Division
+                </p>
+
+                <h2 class="section-title">
+                  
+                    Communication & <span style="color:var(--teal)">Broadcast Infrastructure</span>
+                </h2>
+
+                <p>
+                    Arraycom’s Satellite Communication Division specializes in
+                    designing, engineering, and delivering complete turnkey
+                    solutions across Audio-Video Broadcasting, communication,
+                    surveillance, intelligence, and networking domains.
+                </p>
+
+                <p>
+                    With strong technical expertise and decades of experience in
+                    professional electronics, we integrate multiple technologies —
+                    hardware, software, RF systems, sensors, and communication
+                    networks into seamless, reliable, and mission-ready solutions.
+                </p>
+
+                <p>
+                    Our SI Division is recognized for robust engineering capability,
+                    precision execution, best-in-class service support, and the
+                    ability to deliver highly customized systems tailored to the
+                    requirements of Prasar Bharati (Doordarshan & All India Radio),
+                    defence, government, and industrial clients.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     CORE CAPABILITIES
+================================= -->
+
+<section class="services-section">
+
+    <div class="container">
+
+        <p class="section-tag">Core Capabilities</p>
+
+        <h2 class="section-title">
+            Engineering <span>Excellence</span>
+        </h2>
+
+        <div class="services-grid">
+
+            <!-- CARD -->
+            <div class="service-card">
+
+                <div class="service-number">01</div>
+
+                <h4>System Design & Engineering</h4>
+
+                <p>
+                    Advanced system architecture planning, RF engineering,
+                    infrastructure design, and turnkey technical consulting.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="service-card">
+
+                <div class="service-number">02</div>
+
+                <h4>Component Integration</h4>
+
+                <p>
+                    Integration of RF systems, hardware, software, sensors,
+                    communication equipment, and networking infrastructure.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="service-card">
+
+                <div class="service-number">03</div>
+
+                <h4>Deployment & Installation</h4>
+
+                <p>
+                    Complete on-site deployment, commissioning, infrastructure
+                    setup, and execution for mission-critical environments.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="service-card">
+
+                <div class="service-number">04</div>
+
+                <h4>Testing & Validation</h4>
+
+                <p>
+                    Comprehensive testing, performance optimization, validation,
+                    and quality assurance for reliable operations.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="service-card">
+
+                <div class="service-number">05</div>
+
+                <h4>Training & Support</h4>
+
+                <p>
+                    Technical training programs, operational guidance, AMC support,
+                    and long-term maintenance services.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     SERVICES OFFERED
+================================= -->
+
+<section class="projects-section">
+
+    <div class="container">
+
+        <p class="section-tag">Our Services</p>
+
+        <h2 class="section-title">
+            Mission Critical <span>Solutions</span>
+        </h2>
+
+        <div class="projects-grid">
+
+            <!-- SERVICE -->
+            <div class="project-card">
+
+                <img src="/Images/broadcast-service.jpg" alt="Broadcast Solutions">
+
+                <div class="project-overlay">
+
+                    <h4>Audio-Video Broadcast & RF Solutions</h4>
+
+                    <p>
+                        Earth stations, audio-video compression,
+                        RF monitoring chains, receive-only radio terminals,
+                        RF combiners, studio integration, signal routing,
+                        network infrastructure, and transmission systems.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SERVICE -->
+            <div class="project-card">
+
+                <img src="/Images/satcom-service.jpg" alt="Satellite Communication">
+
+                <div class="project-overlay">
+
+                    <h4>Satellite Communication Systems</h4>
+
+                    <p>
+                        Design and installation of VSAT systems,
+                        RF chains, parabolic dish antenna systems,
+                        and teleport communication infrastructure.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SERVICE -->
+            <div class="project-card">
+
+                <img src="/Images/terrestrial-service.jpg" alt="Terrestrial Systems">
+
+                <div class="project-overlay">
+
+                    <h4>Terrestrial Communication Systems</h4>
+
+                    <p>
+                        Microwave communication links,
+                        radio systems, DVB-T2 solutions,
+                        analog and digital transmitter infrastructure.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SERVICE -->
+            <div class="project-card">
+
+                <img src="/Images/control-service.jpg" alt="Command Control">
+
+                <div class="project-overlay">
+
+                    <h4>Turnkey Command & Control Systems</h4>
+
+                    <p>
+                        End-to-end operational control centre design
+                        with integrated hardware, software,
+                        networking, and surveillance infrastructure.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <!-- =================================
+         CONTACT
+    ================================= -->
+
+    <section class="contact-section">
+
+        <div class="contact-box">
+
+            <p class="section-tag">Contact Us</p>
+
+            <h2 class="section-title">
+                Discuss Your <span>Requirements</span>
+            </h2>
+
+            <p>
+                Connect with our engineering and business teams
+                to explore infrastructure, integration and deployment
+                solutions tailored for your organization.
+            </p>
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+                    📞 +91 9327035105
+                </div>
+
+                <div class="contact-item">
+                    ✉️ info@arraycom.co.in
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         FOOTER
+    ================================= -->
+
+    <!-- USE SAME FOOTER FROM ABOUT PAGE -->
+      <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Col 1: Logo & About -->
+                <div class="footer-col info">
+                    <img src="/Images/logowhite.png" alt="Arraycom" class="footer-logo">
+                    <p>Engineering excellence since 1992. India's premier System Integrator in Professional Electronics.</p>
+                </div>
+
+                <!-- Col 2: Verticals -->
+                <div class="footer-col">
+                    <h4>Verticals</h4>
+                    <ul>
+                        <li><a href="/verticals/system-integration.html">Satellite Communications</a></li>
+                        <li><a href="/verticals/broadcast.html">Broadcast &amp; Terrestrial</a></li>
+
+                        <li><a href="/verticals/defence.html">Command Control &amp; Surveillance</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Verticals</h4>
+                    <ul>
+
+                        <li><a href="/verticals/solar.html">Solar &amp; Clean Energy</a></li>
+                        <li><a href="/verticals/thickfilm.html">Thick Film Materials</a></li>
+                        <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+                    </ul>
+                </div>
+                <!-- Col 3: Address -->
+                <div class="footer-col">
+                    <h4>Corporate Address</h4>
+                    <ul>
+                        <li>Arraycom (India) Ltd.</li>
+                        <li>Electronic Zone, GIDC</li>
+                        <li>Gandhinagar — 382028,Gujarat, India</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Arraycom (India) Ltd. All rights reserved.</p>
+                <div class="footer-bottom-contact">
+                    <span>📞 9327035105</span>
+                    <span>✉️ info@arraycom.co.in</span>
+                </div>
+                <p>GIDC Electronic Zone, Gandhinagar, Gujarat, India</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

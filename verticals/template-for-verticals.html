@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Template | Arraycom</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #020817;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================= */
+
+        .vertical-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 6rem 0;
+
+            background:
+                linear-gradient(rgba(2, 8, 23, 0.82),
+                    rgba(2, 8, 23, 0.9)),
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-tag {
+            color: #00bfff;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .hero-title span {
+            color: #00bfff;
+        }
+
+        .hero-text {
+            color: rgba(255,255,255,0.75);
+            line-height: 2;
+            max-width: 700px;
+            font-size: 1.05rem;
+        }
+
+        /* =========================
+           ABOUT SECTION
+        ========================= */
+
+        .aboutdiv-section {
+            padding: 7rem 0;
+            background:
+    linear-gradient(
+        135deg,
+        #020617 0%,
+        #020817 45%,
+        var(--navy) 100%
+    );
+    
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            border-radius: 24px;
+            min-height: 550px;
+            object-fit: cover;
+        }
+
+        .section-tag {
+            color: #00bfff;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: #00bfff;
+        }
+
+        .section-text {
+            color: rgba(255,255,255,0.75);
+            line-height: 2;
+            margin-bottom: 1.5rem;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-section {
+            padding: 7rem 0;
+            background: #020817;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 24px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0,191,255,0.35);
+        }
+
+        .service-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #00bfff;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: rgba(255,255,255,0.72);
+            line-height: 1.8;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-section {
+            padding: 7rem 0;
+            background:
+                linear-gradient(
+                    to bottom,
+                    #020817,
+                    #06152d
+                );
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            min-height: 420px;
+        }
+
+        .project-card img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.85),
+                    rgba(0,0,0,0.1)
+                );
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            padding: 2rem;
+        }
+
+        .project-overlay h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-overlay p {
+            color: rgba(255,255,255,0.72);
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            padding: 7rem 0;
+            background: #020617;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: 4rem;
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    rgba(255,255,255,0.04),
+                    rgba(255,255,255,0.02)
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .contact-text {
+            color: rgba(255,255,255,0.72);
+            line-height: 2;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            padding: 1rem 1.5rem;
+            border-radius: 14px;
+
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width:1100px) {
+
+            .about-grid,
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-box {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =================================
+         HEADER
+    ================================= -->
+
+       <header>
+        <div class="logo">
+            <!-- Your Logo or Text here -->
+            <img src="/Images/logowhite.png" alt="Arraycom">
+        </div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav-links">
+                <li class="has-dropdown">
+                    <a href="#">VERTICALS</a>
+                    <ul class="dropdown">
+                        <li><a href="/verticals/system-integration.html">Satellite Communications</a></li>
+                        <li><a href="/verticals/broadcast.html">Broadcast & Terrestrial</a></li>
+                        <li><a href="/verticals/defence.html">Command, Control & Surveillance</a></li>
+                        <li><a href="/verticals/solar.html">Solar & Clean Energy</a></li>
+                        <li><a href="/verticals/thickfilm.html">Thick Film Materials</a></li>
+                        <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#" class="cta-btn">CONTACT US</a></li>
+            </ul>
+        </nav>
+        </div>
+
+    </header>
+
+
+
+   <!-- =================================
+     HERO SECTION
+================================= -->
+
+<section class="vertical-hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <p class="hero-tag">
+                Lorem Ipsum Vertical
+            </p>
+
+            <h1 class="hero-title">
+                Lorem <span>Ipsum Dolor</span>
+            </h1>
+
+            <p class="hero-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reprehenderit doloremque molestiae architecto officiis
+                aspernatur porro rerum deserunt quas exercitationem
+                consequatur.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     ABOUT SECTION
+================================= -->
+
+<section class="aboutdiv-section">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+           <div class="about-image">
+    <img src="https://picsum.photos/800/900" alt="">
+</div>
+
+            <div class="about-content">
+
+                <p class="section-tag">
+                    About Vertical
+                </p>
+
+                <h2 class="section-title">
+                    Lorem <span>Ipsum Dolor</span>
+                </h2>
+
+                <p class="section-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quaerat nemo voluptas fugiat laboriosam, corporis
+                    pariatur adipisci exercitationem dignissimos ipsam.
+                </p>
+
+                <p class="section-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Facilis explicabo amet deleniti saepe voluptatibus
+                    assumenda expedita recusandae beatae quis.
+                </p>
+
+                <p class="section-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Magnam vitae atque repellendus minima recusandae.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     SERVICES SECTION
+================================= -->
+
+<section class="services-section">
+
+    <div class="container">
+
+        <p class="section-tag">
+            Vertical
+        </p>
+
+        <h2 class="section-title">
+            Lorem <span>Ipsum Services</span>
+        </h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+
+                <div class="service-number">01</div>
+
+                <h4>Lorem Ipsum</h4>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ad voluptatibus quis impedit earum asperiores.
+                </p>
+
+            </div>
+
+            <div class="service-card">
+
+                <div class="service-number">02</div>
+
+                <h4>Dolor Sit</h4>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ad voluptatibus quis impedit earum asperiores.
+                </p>
+
+            </div>
+
+            <div class="service-card">
+
+                <div class="service-number">03</div>
+
+                <h4>Amet Consectetur</h4>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ad voluptatibus quis impedit earum asperiores.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PROJECTS SECTION
+================================= -->
+
+<section class="projects-section">
+
+    <div class="container">
+
+        <p class="section-tag">
+            Lorem Ipsum
+        </p>
+
+        <h2 class="section-title">
+            Lorem <span>Ipsum Projects</span>
+        </h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
+                    alt="">
+
+                <div class="project-overlay">
+
+                    <h4>Lorem Project One</h4>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nemo, perspiciatis.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="project-card">
+
+                <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200"
+                    alt="">
+
+                <div class="project-overlay">
+
+                    <h4>Lorem Project Two</h4>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nemo, perspiciatis.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="project-card">
+
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200"
+                    alt="">
+
+                <div class="project-overlay">
+
+                    <h4>Lorem Project Three</h4>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nemo, perspiciatis.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     CONTACT SECTION
+================================= -->
+
+<section class="contact-section">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <p class="section-tag">
+                Lorem Ipsum
+            </p>
+
+            <h2 class="section-title">
+                Lorem <span>Ipsum Contact</span>
+            </h2>
+
+            <p class="contact-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Doloremque sapiente officiis labore consequatur
+                molestiae illum dignissimos.
+            </p>
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+                    📞 +91 9876543210
+                </div>
+
+                <div class="contact-item">
+                    ✉️ lorem@ipsum.com
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    
+
+
+    <!-- =================================
+         FOOTER
+    ================================= -->
+
+   <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+
+  <!-- Col 1: Logo & About -->
+  <div class="footer-col info">
+    <img src="/Images/logowhite.png" alt="Arraycom" class="footer-logo">
+    <p>Engineering excellence since 1992. India's premier System Integrator in Professional Electronics.</p>
+  </div>
+
+  <!-- Col 2: Verticals -->
+  <div class="footer-col">
+    <h4>Verticals</h4>
+    <ul>
+      <li><a href="/verticals/system-integration.html">Satellite Communications</a></li>
+      <li><a href="/verticals/broadcast.html">Broadcast &amp; Terrestrial</a></li>
+      
+      <li><a href="/verticals/defence.html">Command Control &amp; Surveillance</a></li>
+       
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Verticals</h4>
+    <ul>
+       
+      <li><a href="/verticals/solar.html">Solar &amp; Clean Energy</a></li>
+      <li><a href="/verticals/thickfilm.html">Thick Film Materials</a></li>
+      <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+    </ul>
+  </div>
+  <!-- Col 3: Address -->
+  <div class="footer-col">
+    <h4>Corporate Address</h4>
+    <ul>
+      <li>Arraycom (India) Ltd.</li>
+      <li>Electronic Zone, GIDC</li>
+      <li>Gandhinagar — 382028,Gujarat, India</li>
+       
+    </ul>
+    
+  </div>
+
+</div>
+    <div class="footer-bottom">
+      <p>© 2026 Arraycom (India) Ltd. All rights reserved.</p>
+       <div class="footer-bottom-contact">
+    <span>📞 9327035105</span>
+    <span>✉️ info@arraycom.co.in</span>
+  </div>
+      <p>GIDC Electronic Zone, Gandhinagar, Gujarat, India</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
