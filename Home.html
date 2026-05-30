@@ -19,6 +19,23 @@
     *, *::before, *::after {
       font-family: 'Inter', sans-serif;
     }
+            body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+       radial-gradient(ellipse 55% 40% at 5% 12%,  rgba(168,223,223,0.65) 0%, rgba(78,200,192,0.35) 50%, transparent 100%),
+  radial-gradient(ellipse 45% 35% at 22% 28%, rgba(78,200,192,0.40) 0%, rgba(58,122,104,0.20) 50%, transparent 100%),
+  radial-gradient(ellipse 40% 35% at 42% 18%, rgba(58,122,104,0.25) 0%, transparent 100%),
+  radial-gradient(ellipse 35% 30% at 62% 22%, rgba(43,78,106,0.30) 0%, rgba(13,27,68,0.20) 60%, transparent 100%),
+  radial-gradient(ellipse 50% 50% at 88% 45%, rgba(13,27,68,0.80) 0%, transparent 100%),
+  radial-gradient(ellipse 40% 40% at 15% 75%, rgba(46,110,96,0.12) 0%, transparent 100%),
+  linear-gradient(135deg, #152236 0%, #0F1E30 35%, #0B1720 65%, #0D1B44 80%, #060D1A 100%);
+
+
+    pointer-events: none;
+    z-index: 0;
+  }
     /* ─────────────────────────────────────────────
        SECTION VISIBILITY (scroll-triggered)
     ───────────────────────────────────────────── */
@@ -302,14 +319,16 @@
 
   .section-title {
     font-size: clamp(30px, 4vw, 50px);
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -1.2px;
     color: var(--white);
     line-height: 1.08;
   }
 
   .section-title .hl {
-    background: linear-gradient(90deg, var(--teal2), var(--teal-g));
+     
+    background:var(--teal);
+    font-weight:800;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -473,8 +492,8 @@
     .divisions-header { margin-bottom: 50px; }
 
     .divisions-header h2 {
-      font-size: 2.5rem;
-      color: #bbb;
+      font-size: 2.3rem;
+      color: #ffffff;
       margin-bottom: 10px;
     }
 
@@ -884,8 +903,8 @@
 
       <h1 class="hero-title">
         <span class="line line-1">We build India's</span>
-        <span class="line line-2">Broadcast, Satellite &amp;</span>
-        <span class="line line-3">Defence Infrastructure</span>
+        <span class="line line-2">Broadcast, Satellite &amp; Defence</span>
+        <span class="line line-3">Infrastructure</span>
       </h1>
 
       <p class="hero-sub">
@@ -950,7 +969,7 @@
     <div class="divisions-header">
       <div class="section-tag section-tag--no-line">Business Verticals</div>
        <h2 class="section-title">Six Pillars of <span class="hl">Expertise</span></h2>
-      <p>From satellite uplinks to solar rooftops — our verticals form an integrated ecosystem of precision engineering and technology leadership.</p>
+      <p>From satellite uplinks to solar rooftops - our verticals form an integrated ecosystem of precision engineering and technology leadership.</p>
     </div>
 
     <div class="divisions-grid">
@@ -960,7 +979,7 @@
           <div class="icon icon-teal"><img src="Images/satellite_3797768.svg" alt=""></div>
           <h3>Satellite Communications</h3>
         </div>
-        <p>End-to-end design, supply and installation of earth station infrastructure — parabolic dish antennas up to 11.3m, VSAT systems, RF chains, HPAs and teleport solutions.</p>
+        <p>End-to-end design, supply and installation of earth station infrastructure - parabolic dish antennas up to 11.3m, VSAT systems, RF chains, HPAs and teleport solutions.</p>
         <div class="v-tags">
           <span class="v-tag">VSAT</span>
           <span class="v-tag">Earth Stations</span>
@@ -975,7 +994,7 @@
           <div class="icon icon-teal"><img src="Logo/broadcast.svg" alt=""></div>
           <h3>Broadcast &amp; Terrestrial Systems</h3>
         </div>
-        <p>Supply, installation and commissioning of broadcast infrastructure — UHF/VHF transmitters, DVB-T2 gateways, FM antenna systems, studio integration, signal routing and microwave terrestrial links.</p>
+        <p>Supply, installation and commissioning of broadcast infrastructure - UHF/VHF transmitters, DVB-T2 gateways, FM antenna systems, studio integration, signal routing and microwave terrestrial links.</p>
         <div class="v-tags">
           <span class="v-tag">UHF/VHF Transmitters</span>
           <span class="v-tag">DVB-T2</span>
@@ -990,7 +1009,7 @@
           <div class="icon icon-teal"><img src="Logo/surv.svg" alt=""></div>
           <h3>Command, Control &amp; Surveillance</h3>
         </div>
-        <p>End-to-end design and integration of operational control centres — hardware, software, RF systems and communication networks built into reliable, mission-ready solutions for government and defence.</p>
+        <p>End-to-end design and integration of operational control centres - hardware, software, RF systems and communication networks built into reliable, mission-ready solutions for government and defence.</p>
         <div class="v-tags">
           <span class="v-tag">Control Centres</span>
           <span class="v-tag">CCTV Networks</span>
@@ -1004,7 +1023,7 @@
           <div class="icon icon-teal"><img src="Logo/solar.svg" alt=""></div>
           <h3>Solar &amp; Clean Energy</h3>
         </div>
-        <p>Turnkey solar power projects from site survey to commissioning — grid-tied rooftop, commercial and industrial installations with full O&amp;M support. MNRE &amp; GEDA registered EPC contractor.</p>
+        <p>Turnkey solar power projects from site survey to commissioning - grid-tied rooftop, commercial and industrial installations with full O&amp;M support. MNRE &amp; GEDA registered EPC contractor.</p>
         <div class="v-tags">
           <span class="v-tag">Grid-Tied Solar</span>
           <span class="v-tag">EPC Turnkey</span>
@@ -1018,7 +1037,7 @@
           <div class="icon icon-teal"><img src="Logo/tfm.svg" alt=""></div>
           <h3>Thick Film Materials</h3>
         </div>
-        <p>Manufacturers of thick film pastes and precious metal powders — solar paste, conductive paste, resistor paste, membrane ink and overglaze paste for hybrid circuits, solar cells and semiconductor packaging.</p>
+        <p>Manufacturers of thick film pastes and precious metal powders - solar paste, conductive paste, resistor paste, membrane ink and overglaze paste for hybrid circuits, solar cells and semiconductor packaging.</p>
         <div class="v-tags">
           <span class="v-tag">Solar Paste</span>
           <span class="v-tag">Conductive Paste</span>
@@ -1032,7 +1051,7 @@
           <div class="icon icon-teal"><img src="Logo/pcb.svg" alt=""></div>
           <h3>PCB Manufacturing</h3>
         </div>
-        <p>In-house printed circuit board manufacturing for professional electronics and industrial applications — part of Arraycom's integrated production capability at the Gandhinagar facility.</p>
+        <p>In-house printed circuit board manufacturing for professional electronics and industrial applications - part of Arraycom's integrated production capability at the Gandhinagar facility.</p>
         <div class="v-tags">
           <span class="v-tag">Professional Electronics</span>
           <span class="v-tag">Industrial Applications</span>
@@ -1050,8 +1069,10 @@
      <div class="section-tag">Track Record</div>
      <h2 class="section-title">Projects <span class="hl">Executed</span></h2>
    </div>
+    
  
-   <!-- Top 10 project rows -->
+ 
+   <!-- Top 10 project rows 
    <div class="reveal" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px;">
  
      <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
@@ -1114,9 +1135,73 @@
        <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Broadcast</div>
      </div>
  
-   </div>
- 
-   <!-- Tag cluster -->
+   </div>-->
+<div class="reveal" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 32px;">
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">112 <span style="color:var(--text);font-weight:400">locations</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">Low Power TV Transmitters</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Broadcast</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">100+ <span style="color:var(--text);font-weight:400">installations</span> </div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">Receive Node Terminals</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Broadcast</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">59 <span style="color:var(--text);font-weight:400">channels</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">DTH Digital Video Uplinking</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Broadcast</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">78 <span style="color:var(--text);font-weight:400">sites</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">Hazard Mitigation Remote Stations</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Command &amp; Control</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">23 <span style="color:var(--text);font-weight:400">sets</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">DVB-T2 Transmitters &amp; Gateways</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Broadcast</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">6.3m <span style="color:var(--text);font-weight:400">dish</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">Earth Station for Digital Video Uplink</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Satellite</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">10 <span style="color:var(--text);font-weight:400">locations</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">Earth Station Upgradation</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Satellite</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">3 × 11.3m</div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">Multiband Antenna Systems</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Satellite</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">8 <span style="color:var(--text);font-weight:400">sites</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">Digital Audio Uplink Earth Stations</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Broadcast</div>
+  </div>
+
+  <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
+    <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">50 <span style="color:var(--text);font-weight:400">stations</span></div>
+    <div style="font-size: 12px; font-weight: 500; color: var(--white); line-height: 1.4;">FM Modulation Monitors</div>
+    <div style="font-size: 10px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; white-space: nowrap;">Broadcast</div>
+  </div>
+
+</div>
+
+   
+<!-- Tag cluster -->
    <div class="reveal reveal-d1" style="padding: 20px 24px; background: rgba(14,22,40,0.40); border: 1px solid rgba(78,201,201,0.08); border-radius: 8px; backdrop-filter: blur(4px);">
      <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); font-weight: 600; margin-bottom: 12px;">Also Delivered</div>
      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -1132,7 +1217,6 @@
        <span style="font-size: 12px; color: var(--slate); background: rgba(78,201,201,0.05); border: 1px solid rgba(78,201,201,0.10); padding: 4px 12px; border-radius: 4px;">DMDD System</span>
      </div>
    </div>
- 
  </div>
 </section>
   <!-- ── CLIENTS (infinite marquee) ───────────── -->
