@@ -22,7 +22,24 @@
             overflow-x: hidden;
         }
 
-        
+          body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+       radial-gradient(ellipse 55% 40% at 5% 12%,  rgba(168,223,223,0.65) 0%, rgba(78,200,192,0.35) 50%, transparent 100%),
+  radial-gradient(ellipse 45% 35% at 22% 28%, rgba(78,200,192,0.40) 0%, rgba(58,122,104,0.20) 50%, transparent 100%),
+  radial-gradient(ellipse 40% 35% at 42% 18%, rgba(58,122,104,0.25) 0%, transparent 100%),
+  radial-gradient(ellipse 35% 30% at 62% 22%, rgba(43,78,106,0.30) 0%, rgba(13,27,68,0.20) 60%, transparent 100%),
+  radial-gradient(ellipse 50% 50% at 88% 45%, rgba(13,27,68,0.80) 0%, transparent 100%),
+  radial-gradient(ellipse 40% 40% at 15% 75%, rgba(46,110,96,0.12) 0%, transparent 100%),
+  linear-gradient(135deg, #152236 0%, #0F1E30 35%, #0B1720 65%, #0D1B44 80%, #060D1A 100%);
+
+
+    pointer-events: none;
+    z-index: 0;
+  }
+
 
         .container {
             width: 90%;

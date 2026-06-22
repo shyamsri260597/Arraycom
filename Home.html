@@ -4,7 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arraycom (India) Ltd.</title>
+  <<!-- Primary meta -->
+<title>Arraycom India Limited</title>
+<meta name="description" content="System integrators for broadcast, satellite and defence infrastructure. ISO 9001:2015 certified. Delivering complex engineering projects across India since 1992."/>
+
+<!-- Open Graph — for LinkedIn, WhatsApp, Facebook -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.arraycom.co.in/"/>
+<meta property="og:title" content="Arraycom India Limited"/>
+<meta property="og:description" content="System integrators for broadcast, satellite and defence infrastructure. ISO 9001:2015 certified. Delivering complex engineering projects across India since 1992."/>
+<meta property="og:image" content="https://www.arraycom.co.in/images/og-image.jpg"/>
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Arraycom India Limited"/>
+<meta name="twitter:description" content="System integrators for broadcast, satellite and defence infrastructure. ISO 9001:2015 certified. Delivering complex engineering projects across India since 1992."/>
+<meta name="twitter:image" content="https://www.arraycom.co.in/images/og-image.jpg"/>
+
 
   <link rel="stylesheet" href="css/style.css" />
 
@@ -142,9 +158,9 @@
     }
 
     .hero-title .line { display: block; }
-    .line-1 { color: #ffffff; }
+    .line-1 { color: #ffffff; font-weight:400;}
     .line-2 { color: var(--teal); font-weight: 800; }
-    .line-3 { color: #ffffff; }
+    .line-3 { color: #ffffff; font-weight: 400;}
 
     .hero-sub {
       font-size: clamp(15px, 1.5vw, 18px);
@@ -319,7 +335,7 @@
 
   .section-title {
     font-size: clamp(30px, 4vw, 50px);
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -1.2px;
     color: var(--white);
     line-height: 1.08;
@@ -643,7 +659,7 @@
       display: flex;
       gap: 24px;
       width: max-content;
-      animation: marquee 30s linear infinite;
+      animation: marquee 40s linear infinite;
     }
 
     .clients-track:hover { animation-play-state: paused; }
@@ -670,23 +686,30 @@
     }
 
     .client-tile img {
-      max-width: 100px;
-      max-height: 70px;
+      max-width: 100%;
+      max-height: 175px;
       object-fit: contain;
       opacity: 0.65;
       filter: grayscale(40%);
       transition: all 0.3s ease;
     }
 
-    .client-tile span {
-      font-size: 10px;
-      color: var(--text-main);
-      opacity: 0.55;
-      text-align: center;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
+  .client-tile span {
+  font-size: 10px;
+  color: var(--text-main);
+  opacity: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+}
 
+.client-tile:hover span {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--teal);
+}
     .client-tile:hover {
       border-color: var(--teal);
       background: rgba(78,201,201,0.06);
@@ -1072,71 +1095,8 @@
     
  
  
-   <!-- Top 10 project rows 
-   <div class="reveal" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px;">
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">Low Power TV Transmitters</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">112 locations</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Broadcast</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">Receive Node Terminals</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">100+ installations</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Broadcast</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">DTH Digital Video Uplinking</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">59 channels</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Broadcast</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">Hazard Mitigation Remote Stations</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">78 sites</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06; border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Command &amp; Control</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">DVB-T2 Transmitters &amp; Gateways</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">23 sets</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Broadcast</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">Earth Station for Digital Video Uplink</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">6.3m dish</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Satellite</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">Earth Station Upgradation</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">10 locations</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Satellite</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">Multiband Antenna Systems</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">3 × 11.3m</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Satellite</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">Digital Audio Uplink Earth Stations</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">8 sites</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Broadcast</div>
-     </div>
- 
-     <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 20px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
-       <div style="font-size: 14.5px; font-weight: 500; color: var(--white);">FM Modulation Monitors</div>
-       <div style="font-size: 13px; font-weight: 700; color: var(--teal); white-space: nowrap;">50 stations</div>
-       <div style="font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(78,201,201,0.06); border: 1px solid rgba(78,201,201,0.12); padding: 3px 10px; border-radius: 4px; white-space: nowrap;">Broadcast</div>
-     </div>
- 
-   </div>-->
-<div class="reveal" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 32px;">
+   
+<div class="reveal" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 32px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
 
   <div style="padding: 16px 18px; background: rgba(14,22,40,0.55); border: 1px solid rgba(78,201,201,0.10); border-radius: 8px; backdrop-filter: blur(4px);">
     <div style="font-size: 20px; font-weight: 700; color: var(--teal); line-height: 1.1; margin-bottom: 6px;">112 <span style="color:var(--text);font-weight:400">locations</span></div>
@@ -1221,36 +1181,43 @@
 </section>
   <!-- ── CLIENTS (infinite marquee) ───────────── -->
   <section class="clients-section">
+       <div class="reveal" style="margin-bottom: 48px;">
+  <div class="section-tag">Trusted Partners</div>
+  <h2 class="section-title">
+    Serving <span class="hl">Defence, Government</span><br>
+    & Enterprise
+  </h2>
+</div>
     
-        <h2 class="section-title">Our Valued <span class="hl">Customers & Partners</span></h2>
+        
     <div class="clients-track-wrapper">
       <!-- Track is duplicated so the loop is seamless -->
       <div class="clients-track" id="clientsTrack">
-        <div class="client-tile"><img src="Logo/logo_01.png" alt="NTRO"><span>NTRO</span></div>
-        <div class="client-tile"><img src="Logo/logo_04.png" alt="Doordarshan"><span>Doordarshan</span></div>
-        <div class="client-tile"><img src="Logo/logo_05.png" alt="Prasar Bharati"><span>Prasar Bharati</span></div>
-        <div class="client-tile"><img src="Logo/logo_02.png" alt="ISRO"><span>ISRO</span></div>
-        <div class="client-tile"><img src="Logo/logo_06.png" alt="MHA"><span>MHA</span></div>
-        <div class="client-tile"><img src="Logo/logo_03.png" alt="IMD"><span>IMD</span></div>
-        <div class="client-tile"><img src="Logo/logo_09.png" alt="SAC"><span>SAC</span></div>
-        <div class="client-tile"><img src="Logo/logo_07.png" alt="ONGC"><span>ONGC</span></div>
-        <div class="client-tile"><img src="Logo/logo_10.png" alt="Cabinet Secretariat"><span>Cabinet Secretariat GOI</span></div>
-        <div class="client-tile"><img src="Logo/logo_08.png" alt="DRDO"><span>DRDO &amp; Defence Labs</span></div>
-        <div class="client-tile"><img src="Logo/logo_11.png" alt="BEL"><span>BEL &amp; CEL</span></div>
-        <div class="client-tile"><img src="Logo/logo_12.png" alt="THDC"><span>Tehri Hydro Development</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/1.png" alt="Cabinet Secretariat"><span>Cabinet Secretariat GOI</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/2.png" alt="dropdown"><span>DRDO</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/3.png" alt="Doordarshan"><span>Doordarshan</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/4.png" alt="IMD"><span>Indian Meteorological Department</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/5.png" alt="ISRO"><span>ISRO</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/6.png" alt="THDC"><span>Tehri Hydro Development</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/7.png" alt="MHA"><span>Ministry of Home Affairs</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/8.png" alt="NTRO"><span>National Technical Research Organisation</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/9.png" alt="ONGC"><span>ONGC</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/10.png" alt="Prasar Bharati"><span>Prasar Bharati</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/11.png" alt="SAC"><span>SAC</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/12.png" alt="BEL"><span>BEL</span></div>
         <!-- Duplicate set for seamless loop -->
-         <div class="client-tile"><img src="Logo/logo_01.png" alt="NTRO"><span>NTRO</span></div>
-        <div class="client-tile"><img src="Logo/logo_04.png" alt="Doordarshan"><span>Doordarshan</span></div>
-        <div class="client-tile"><img src="Logo/logo_05.png" alt="Prasar Bharati"><span>Prasar Bharati</span></div>
-        <div class="client-tile"><img src="Logo/logo_02.png" alt="ISRO"><span>ISRO</span></div>
-        <div class="client-tile"><img src="Logo/logo_06.png" alt="MHA"><span>MHA</span></div>
-        <div class="client-tile"><img src="Logo/logo_03.png" alt="IMD"><span>IMD</span></div>
-        <div class="client-tile"><img src="Logo/logo_09.png" alt="SAC"><span>SAC</span></div>
-        <div class="client-tile"><img src="Logo/logo_07.png" alt="ONGC"><span>ONGC</span></div>
-        <div class="client-tile"><img src="Logo/logo_10.png" alt="Cabinet Secretariat"><span>Cabinet Secretariat GOI</span></div>
-        <div class="client-tile"><img src="Logo/logo_08.png" alt="DRDO"><span>DRDO &amp; Defence Labs</span></div>
-        <div class="client-tile"><img src="Logo/logo_11.png" alt="BEL"><span>BEL &amp; CEL</span></div>
-        <div class="client-tile"><img src="Logo/logo_12.png" alt="THDC"><span>Tehri Hydro Development</span></div>
+       <div class="client-tile"><img src="Logo/Transparent/1.png" alt="Cabinet Secretariat"><span>Cabinet Secretariat GOI</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/2.png" alt="dropdown"><span>DRDO</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/3.png" alt="Doordarshan"><span>Doordarshan</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/4.png" alt="IMD"><span>Indian Meteorological Department</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/5.png" alt="ISRO"><span>ISRO</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/6.png" alt="THDC"><span>Tehri Hydro Development</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/7.png" alt="MHA"><span>Ministry of Home Affairs</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/8.png" alt="NTRO"><span>National Technical Research Organisation</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/9.png" alt="ONGC"><span>ONGC</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/10.png" alt="Prasar Bharati"><span>Prasar Bharati</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/11.png" alt="SAC"><span>SAC</span></div>
+        <div class="client-tile"><img src="Logo/Transparent/12.png" alt="BEL"><span>BEL</span></div>
       </div>
     </div>
   </section>
