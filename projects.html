@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ======================================================
+   PROJECTS
+====================================================== */
+
+.projects-section{
+    position:relative;
+    padding:90px 5vw;
+    background:rgba(7,12,22,.45);
+    border-top:1px solid rgba(78,201,201,.08);
+    border-bottom:1px solid rgba(78,201,201,.08);
+    backdrop-filter:blur(6px);
+}
+
+.projects-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.projects-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.projects-subtitle{
+    max-width:760px;
+    margin:18px auto 0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.8;
+}
+
+.projects-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+/* ===============================
+   CARD
+================================ */
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+
+    padding: 20px 22px;
+
+    background: rgba(14,22,40,0.55);
+    backdrop-filter: blur(4px);
+
+    border: 1px solid rgba(78,201,201,0.10);
+    border-radius: 8px;
+
+    transition: all .35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(78,201,201,0.30);
+    box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+
+.project-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--teal),
+        transparent
+    );
+
+    opacity:.6;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:
+    rgba(78,201,201,.30);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.25);
+
+}
+
+/* ===============================
+   NUMBER
+================================ */
+
+.project-number{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:var(--teal);
+
+    line-height:1;
+
+}
+
+.project-unit{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+}
+
+.project-title{
+
+    margin:22px 0;
+
+    color:var(--white);
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    flex:1;
+
+}
+
+/* ===============================
+   TAG
+================================ */
+
+.project-tag{
+
+    margin-top:auto;
+
+    align-self:flex-start;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+}
+
+/* Broadcast */
+
+.tag-broadcast{
+
+    color:#56F0C5;
+
+    background:
+    rgba(0,184,148,.12);
+
+    border:
+    1px solid rgba(0,184,148,.35);
+
+}
+
+/* Satellite */
+
+.tag-satellite{
+
+    color:#7CC5FF;
+
+    background:
+    rgba(52,152,219,.12);
+
+    border:
+    1px solid rgba(52,152,219,.35);
+
+}
+
+/* Command */
+
+.tag-command{
+
+    color:#D6A8FF;
+
+    background:
+    rgba(155,89,182,.12);
+
+    border:
+    1px solid rgba(155,89,182,.35);
+
+}
+
+/* ===============================
+   ALSO DELIVERED
+================================ */
+
+.projects-extra{
+
+    margin-top:60px;
+
+    padding:28px;
+
+    border-radius:12px;
+
+    background:
+    rgba(15,24,38,.45);
+
+    border:
+    1px solid rgba(78,201,201,.08);
+
+}
+
+.extra-title{
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+    margin-bottom:18px;
+
+}
+
+.projects-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.projects-tags span{
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    color:var(--slate);
+
+    background:
+    rgba(78,201,201,.05);
+
+    border:
+    1px solid rgba(78,201,201,.10);
+
+    transition:.3s;
+
+}
+
+.projects-tags span:hover{
+
+    color:var(--teal);
+
+    border-color:
+    rgba(78,201,201,.30);
+
+}
+    </style>
+</head>
+<body>
+    <section id="projects" class="projects-section">
+
+        <div class="projects-container">
+
+            <div class="reveal projects-header">
+                <div class="section-tag">
+                    Track Record
+                </div>
+
+                <h2 class="section-title">
+                    Projects <span class="hl">Executed</span>
+                </h2>
+
+                <p class="projects-subtitle">
+                    Proven execution across Broadcast, Satellite Communications,
+                    Strategic Networks and Mission-Critical Infrastructure for
+                    Government and Defence organizations.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-number">112</div>
+                    <div class="project-unit">Locations</div>
+
+                    <div class="project-title">
+                        Low Power TV Transmitters
+                    </div>
+
+                    <span class="project-tag tag-broadcast">
+                        Broadcast
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">100+</div>
+                    <div class="project-unit">Installations</div>
+
+                    <div class="project-title">
+                        Receive Node Terminals
+                    </div>
+
+                    <span class="project-tag tag-broadcast">
+                        Broadcast
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">59</div>
+                    <div class="project-unit">Channels</div>
+
+                    <div class="project-title">
+                        DTH Digital Video Uplinking
+                    </div>
+
+                    <span class="project-tag tag-broadcast">
+                        Broadcast
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">78</div>
+                    <div class="project-unit">Sites</div>
+
+                    <div class="project-title">
+                        Hazard Mitigation Remote Stations
+                    </div>
+
+                    <span class="project-tag tag-command">
+                        Command &amp; Control
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">23</div>
+                    <div class="project-unit">Sets</div>
+
+                    <div class="project-title">
+                        DVB-T2 Transmitters &amp; Gateways
+                    </div>
+
+                    <span class="project-tag tag-broadcast">
+                        Broadcast
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">6.3m</div>
+                    <div class="project-unit">Dish</div>
+
+                    <div class="project-title">
+                        Earth Station for Digital Video Uplink
+                    </div>
+
+                    <span class="project-tag tag-satellite">
+                        Satellite
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">10</div>
+                    <div class="project-unit">Locations</div>
+
+                    <div class="project-title">
+                        Earth Station Upgradation
+                    </div>
+
+                    <span class="project-tag tag-satellite">
+                        Satellite
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">3 × 11.3m</div>
+
+                    <div class="project-unit">
+                        Antenna Systems
+                    </div>
+
+                    <div class="project-title">
+                        Multiband Antenna Systems
+                    </div>
+
+                    <span class="project-tag tag-satellite">
+                        Satellite
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">8</div>
+
+                    <div class="project-unit">
+                        Sites
+                    </div>
+
+                    <div class="project-title">
+                        Digital Audio Uplink Earth Stations
+                    </div>
+
+                    <span class="project-tag tag-broadcast">
+                        Broadcast
+                    </span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">50</div>
+
+                    <div class="project-unit">
+                        Stations
+                    </div>
+
+                    <div class="project-title">
+                        FM Modulation Monitors
+                    </div>
+
+                    <span class="project-tag tag-broadcast">
+                        Broadcast
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="projects-extra">
+
+                <div class="extra-title">
+                    Also Delivered
+                </div>
+
+                <div class="projects-tags">
+
+                    <!-- Tags go here -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+</body>
+</html>
