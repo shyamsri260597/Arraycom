@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products and Applications</title>
+  <style>
+    /* 1. Global Page Setup */
+    body {
+      margin: 0;
+      padding: 60px 20px;
+      background-color: #040d1a; /* Dark blueprint canvas background */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Section Wrapper */
+    .products-section {
+      width: 100%;
+      max-width: 1200px;
+      box-sizing: border-box;
+    }
+
+    /* 2. Top Group Label / Section Title Styling */
+    .group-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 0 40px 0;
+      color: #64ffda; /* Electric cyan accent text */
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .group-label::before,
+    .group-label::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background-color: #1e3a5f;
+    }
+
+    /* 3. Products Grid Layout Container */
+    .products-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px; /* Clean, tight gap between rows */
+    }
+
+    /* 4. Individual Product Row Row Styles */
+    .product-row {
+      display: grid;
+      grid-template-columns: 350px 1fr; /* Rigid left column width, fluid right side */
+      background-color: #071324;       /* Dark navy item fill */
+      border: 1px solid #14253d;       /* Muted grid border outline */
+      border-radius: 12px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    /* Left Column: Product Info Panel */
+    .product-info-panel {
+      padding: 24px;
+      background-color: rgba(20, 37, 61, 0.3); /* Subtle internal tint split */
+      border-right: 1px solid #14253d;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-title {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+    }
+
+    .product-subtitle {
+      color: #64ffda; /* Teal accent text for extra descriptions */
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* Right Column: Application Lists Wrapper */
+    .applications-panel {
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap; /* Wraps items cleanly inside the box container */
+      gap: 10px;
+      align-content: center;
+    }
+
+    /* Application Item Tags styling */
+    .app-tag {
+      background-color: #0d1f38;
+      border: 1px solid #1e3a5f;
+      color: #94a3b8; /* High readability muted gray text */
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    /* Hover interactive styling */
+    .app-tag:hover {
+      border-color: #64ffda;
+      color: #ffffff;
+      background-color: #112d4e;
+    }
+
+    /* 5. Fluid Responsive Breakdown for tablets/phones */
+    @media (max-width: 850px) {
+      .product-row {
+        grid-template-columns: 1fr; /* Stacks column boxes on top of each other */
+      }
+      .product-info-panel {
+        border-right: none;
+        border-bottom: 1px solid #14253d;
+        padding: 20px;
+      }
+      .applications-panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="products-section">
+    <!-- Header Block Component -->
+    <div class="group-label">Products &amp; Applications</div>
+    
+    <!-- Main Categories Stack Layout Container -->
+    <div class="products-container">
+      
+      <!-- Row 1: Solar Paste -->
+      <div class="product-row">
+        <div class="product-info-panel">
+          <h3 class="product-title">Solar Paste</h3>
+        </div>
+        <div class="applications-panel">
+          <span class="app-tag">Front Ag Paste</span>
+          <span class="app-tag">Back Ag Paste</span>
+          <span class="app-tag">Al Paste for PhotoVolatic cell Application</span>
+        </div>
+      </div>
+
+      <!-- Row 2: Conductive Paste -->
+      <div class="product-row">
+        <div class="product-info-panel">
+          <h3 class="product-title">Conductive Paste</h3>
+          <p class="product-subtitle">Ag | Pd | Pt Conductor</p>
+        </div>
+        <div class="applications-panel">
+          <span class="app-tag">Hybrid Micro Circuit</span>
+          <span class="app-tag">Mica Multilayer Ceramic Capacitors</span>
+          <span class="app-tag">Metal Oxide Varistor</span>
+          <span class="app-tag">NTC Thermistor Disc</span>
+          <span class="app-tag">PZT Application</span>
+          <span class="app-tag">Air Drying Application</span>
+        </div>
+      </div>
+
+      <!-- Row 3: Membrane Ink -->
+      <div class="product-row">
+        <div class="product-info-panel">
+          <h3 class="product-title">Membrane Ink</h3>
+        </div>
+        <div class="applications-panel">
+          <span class="app-tag">Various Types of Membrane Paste (Ink) for membrane Keypads and Keyboards</span>
+        </div>
+      </div>
+
+      <!-- Row 4: Resistor Paste -->
+      <div class="product-row">
+        <div class="product-info-panel">
+          <h3 class="product-title">Resistor Paste</h3>
+        </div>
+        <div class="applications-panel">
+          <span class="app-tag">Thin Film Resistor</span>
+          <span class="app-tag">Chip Resistor</span>
+          <span class="app-tag">Resistor Network</span>
+          <span class="app-tag">Hybrid Micro-Circuit Application</span>
+          <span class="app-tag">Potentiometer</span>
+        </div>
+      </div>
+
+      <!-- Row 5: Overglaze Paste -->
+      <div class="product-row">
+        <div class="product-info-panel">
+          <h3 class="product-title">Overglaze Paste</h3>
+          <p class="product-subtitle">Insulation Paste</p>
+        </div>
+        <div class="applications-panel">
+          <span class="app-tag">For Hybrid Micro Circuit &amp; Other Applications</span>
+        </div>
+      </div>
+
+      <!-- Row 6: Precious Metal Powder -->
+      <div class="product-row">
+        <div class="product-info-panel">
+          <h3 class="product-title">Precious Metal Powder</h3>
+        </div>
+        <div class="applications-panel">
+          <span class="app-tag">Ag Powder &amp; Flakes</span>
+          <span class="app-tag">Pd Powder</span>
+          <span class="app-tag">Pt Powder</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

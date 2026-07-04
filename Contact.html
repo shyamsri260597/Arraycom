@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary meta -->
+    <title>Contact Us | Arraycom India Limited</title>
+    <meta name="description" content="Get in touch with Arraycom (India) Ltd. for broadcast, satellite, defence, solar, thick film materials and PCB manufacturing enquiries." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.arraycom.co.in/contact.html" />
+    <meta property="og:title" content="Contact Us | Arraycom India Limited" />
+    <meta property="og:description" content="Get in touch with Arraycom (India) Ltd. for broadcast, satellite, defence, solar, thick film materials and PCB manufacturing enquiries." />
+    <meta property="og:image" content="https://www.arraycom.co.in/images/og-image.jpg" />
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact Us | Arraycom India Limited" />
+    <meta name="twitter:description" content="Get in touch with Arraycom (India) Ltd. for broadcast, satellite, defence, solar, thick film materials and PCB manufacturing enquiries." />
+    <meta name="twitter:image" content="https://www.arraycom.co.in/images/og-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/headerfooter.css" />
+
+    <style>
+        /* ─────────────────────────────────────────────
+           CONTACT HERO
+        ───────────────────────────────────────────── */
+        #contact-hero {
+            padding: 160px 8vw 90px;
+            max-width: 900px;
+        }
+
+        #contact-hero .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 16px;
+        }
+
+        #contact-hero .section-tag::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--teal);
+        }
+
+        #contact-hero h1 {
+            font-size: clamp(38px, 5vw, 64px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: #fff;
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+
+        #contact-hero .hero-sub {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.75;
+            max-width: 640px;
+            font-weight: 300;
+        }
+
+        /* ─────────────────────────────────────────────
+           CONTACT LAYOUT (info cards left, form right)
+        ───────────────────────────────────────────── */
+        .contact-wrap {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 8vw;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* ── Left column: reach us ── */
+        .contact-info {
+            background-color: #071324;
+            border: 1px solid #14253d;
+            border-radius: 16px;
+            padding: 36px 32px;
+            box-sizing: border-box;
+        }
+
+        .contact-info h2 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        .reach-item {
+            padding: 18px 0;
+            border-top: 1px solid #14253d;
+        }
+
+        .reach-item:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .reach-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 8px;
+        }
+
+        .reach-value {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .reach-value a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .reach-value a:hover {
+            color: var(--teal);
+        }
+
+        .contact-social {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid #14253d;
+        }
+
+        .contact-social .reach-label {
+            margin-bottom: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: #0d1f38;
+            border: 1px solid #1e3a5f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            transition: all 0.2s ease;
+        }
+
+        .social-links a:hover {
+            border-color: var(--teal);
+            color: #ffffff;
+            background: #112d4e;
+        }
+
+        /* ── Right column: form ── */
+        .contact-form-panel {
+            background-color: #071324;
+            border: 1px solid #14253d;
+            border-radius: 16px;
+            padding: 40px 40px 36px;
+            box-sizing: border-box;
+        }
+
+        .contact-form-panel h2 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .contact-form-panel > p {
+            color: var(--slate);
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .form-field label .req {
+            color: var(--teal);
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            background-color: #0d1f38;
+            border: 1px solid #1e3a5f;
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: #ffffff;
+            outline: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: #5a7290;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--teal);
+            background-color: #112d4e;
+        }
+
+        .form-field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234EC9C9' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .consent-field {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .consent-field input[type="checkbox"] {
+            margin-top: 3px;
+            accent-color: var(--teal);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .consent-field label {
+            font-size: 0.8rem;
+            color: var(--slate);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .consent-field a {
+            color: var(--teal);
+            text-decoration: none;
+        }
+
+        .consent-field a:hover {
+            text-decoration: underline;
+        }
+
+        .form-submit {
+            margin-top: 26px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .form-submit .required-note {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        @media (max-width: 900px) {
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #contact-hero {
+                padding: 140px 6vw 70px;
+            }
+
+            .contact-form-panel {
+                padding: 28px 24px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="Logo/Arraycom_Logo_White_Text.png" alt="Arraycom">
+        </div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html">HOME</a></li>
+                <li class="has-dropdown">
+                    <a href="Home.html">VERTICALS</a>
+                    <ul class="dropdown">
+                        <li><a href="/verticals/satellite.html">Satellite Communications</a></li>
+                        <li><a href="/verticals/broadcast.html">Broadcast &amp; Terrestrial</a></li>
+                        <li><a href="/verticals/defence.html">Command, Control &amp; Surveillance</a></li>
+                        <li><a href="/verticals/solar.html">Solar &amp; Clean Energy</a></li>
+                        <li><a href="/verticals/tfm.html">Thick Film Materials</a></li>
+                        <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="About.html">ABOUT US</a></li>
+                <li><a href="Contact.html" class="cta-btn">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ── CONTACT HERO ─────────────────────────────────────── -->
+    <section id="contact-hero">
+        <div class="section-tag">Get In Touch</div>
+        <h1>Connect With Our Experts</h1>
+        <p class="hero-sub">
+            Whether it's a broadcast build-out, a satellite ground segment, a defence system,
+            or a thick film materials enquiry — our team is ready to help. Reach out and
+            we'll get back to you shortly.
+        </p>
+    </section>
+
+    <!-- ── CONTACT BODY ─────────────────────────────────────── -->
+    <div class="contact-wrap">
+
+        <!-- Left: Reach Us -->
+        <div class="contact-info">
+            <h2>Reach Us</h2>
+
+            <div class="reach-item">
+                <div class="reach-label">General Enquiries</div>
+                <div class="reach-value"><a href="mailto:info@arraycom.co.in">info@arraycom.co.in</a></div>
+            </div>
+
+            <div class="reach-item">
+                <div class="reach-label">Business &amp; Partnerships</div>
+                <div class="reach-value"><a href="mailto:marketing@arraycom.co.in">marketing@arraycom.co.in</a></div>
+            </div>
+
+            <div class="reach-item">
+                <div class="reach-label">Phone</div>
+                <div class="reach-value">
+                    <a href="tel:+919327035105">+91 93270 35105</a><br>
+                    <a href="tel:+919327135128">+91 93271 35128</a>
+                </div>
+            </div>
+
+            <div class="reach-item">
+                <div class="reach-label">Corporate Address</div>
+                <div class="reach-value">
+                    Arraycom (India) Ltd.<br>
+                    Electronic Zone, GIDC<br>
+                    Gandhinagar — 382028<br>
+                    Gujarat, India
+                </div>
+            </div>
+
+            <div class="contact-social">
+                <div class="reach-label">Follow Us</div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 11.02-4.12 2.06 2.06 0 01-.02 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+                    </a>
+                    <a href="#" aria-label="X / Twitter">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.2-9.3L1 2h7.1l4.9 6.3L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form-panel">
+            <h2>Send Us a Message</h2>
+            <p>Fill in the details below and our team will get back to you shortly.</p>
+
+            <form id="arraycom-contact-form">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="full-name">Full Name <span class="req">*</span></label>
+                        <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Email Address <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone">Phone Number <span class="req">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="organisation">Organisation Name <span class="req">*</span></label>
+                        <input type="text" id="organisation" name="organisation" placeholder="Company / organisation" required>
+                    </div>
+
+                    <div class="form-field full">
+                        <label for="interest">How Can We Assist You? <span class="req">*</span></label>
+                        <select id="interest" name="interest" required>
+                            <option value="" selected disabled>Select an area of interest</option>
+                            <option value="satellite">Satellite Communications</option>
+                            <option value="broadcast">Broadcast &amp; Terrestrial</option>
+                            <option value="defence">Command, Control &amp; Surveillance</option>
+                            <option value="solar">Solar &amp; Clean Energy</option>
+                            <option value="tfm">Thick Film Materials</option>
+                            <option value="pcb">PCB Manufacturing</option>
+                            <option value="careers">Careers</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field full">
+                        <label for="message">Message <span class="req">*</span></label>
+                        <textarea id="message" name="message" placeholder="Tell us a bit about your requirement..." required></textarea>
+                    </div>
+
+                    <div class="form-field full consent-field">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">
+                            I have read and agree to the <a href="#">Privacy Policy</a> and consent to
+                            Arraycom (India) Ltd. processing my data for the purpose of this enquiry. <span class="req">*</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="cta-button" style="border:none;cursor:pointer;">Send Message</button>
+                    <span class="required-note">All fields marked * are required.</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ─────────────────────────────── -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-container">
+
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand -->
+                <div class="footer-col info">
+                    <img src="Logo/Arraycom_Logo_White_Text.png" alt="Arraycom (India) Ltd." class="footer-logo">
+                    <p>Engineering excellence since 1992. India's premier system integrator in professional electronics, defence
+                        communications and clean energy.</p>
+                </div>
+
+                <!-- Col 2: Verticals -->
+                <div class="footer-col">
+                    <h4>Verticals</h4>
+                    <ul>
+                        <li><a href="/verticals/satellite.html">Satellite Communications</a></li>
+                        <li><a href="/verticals/broadcast.html">Broadcast &amp; Terrestrial</a></li>
+                        <li><a href="/verticals/defence.html">Command, Control &amp; Surveillance</a></li>
+                        <li><a href="/verticals/solar.html">Solar &amp; Clean Energy</a></li>
+                        <li><a href="/verticals/thickfilm.html">Thick Film Materials</a></li>
+                        <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col">
+                    <h4>Corporate Address</h4>
+                    <address>
+                        Arraycom (India) Ltd.<br>
+                        Electronic Zone, GIDC<br>
+                        Gandhinagar — 382028<br>
+                        Gujarat, India
+                    </address>
+
+                    <div class="footer-contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal);flex-shrink:0">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
+                        </svg>
+                        <a href="tel:+919327035105">+91 93270 35105</a>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal);flex-shrink:0">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        <a href="mailto:info@arraycom.co.in">info@arraycom.co.in</a>
+                    </div>
+                </div>
+
+            </div><!-- /footer-grid -->
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom">
+            <p>© 2026 Arraycom (India) Ltd. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        // Basic client-side handling — swap this for your real form endpoint / backend integration.
+        document.getElementById('arraycom-contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for reaching out. Our team will get back to you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>

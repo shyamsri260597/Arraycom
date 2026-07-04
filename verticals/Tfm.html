@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary meta -->
+    <title>Arraycom India Limited</title>
+    <meta name="description" content="System integrators for broadcast, satellite and defence infrastructure. ISO 9001:2015 certified. Delivering complex engineering projects across India since 1992." />
+
+    <!-- Open Graph — for LinkedIn, WhatsApp, Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.arraycom.co.in/" />
+    <meta property="og:title" content="Arraycom India Limited" />
+    <meta property="og:description" content="System integrators for broadcast, satellite and defence infrastructure. ISO 9001:2015 certified. Delivering complex engineering projects across India since 1992." />
+    <meta property="og:image" content="https://www.arraycom.co.in/images/og-image.jpg" />
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Arraycom India Limited" />
+    <meta name="twitter:description" content="System integrators for broadcast, satellite and defence infrastructure. ISO 9001:2015 certified. Delivering complex engineering projects across India since 1992." />
+    <meta name="twitter:image" content="https://www.arraycom.co.in/images/og-image.jpg" />
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/headerfooter.css" />
+    <link rel="stylesheet" href="../css/home.css">
+
+
+    <style>
+        #hero {
+            position: relative;
+            padding: 150px 5vw 80px;
+            max-width: none;
+            width: 100%;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        #hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('../Images/tfmhero.png') center center / cover no-repeat;
+            z-index: -2;
+        }
+
+        #hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right,
+                    rgba(8, 14, 24, 0.92) 0%,
+                    rgba(8, 14, 24, 0.75) 45%,
+                    rgba(8, 14, 24, 0.45) 100%);
+            z-index: -1;
+        }
+        /* ─────────────────────────────────────────────
+   SCROLL REVEAL — Thick Film Materials page
+───────────────────────────────────────────── */
+.divisions-header,
+.portfolio-section,
+.products-section,
+.cta-banner {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.divisions-header.visible,
+.portfolio-section.visible,
+.products-section.visible,
+.cta-banner.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* stagger each metal card slightly for a nicer cascade */
+.metal-card,
+.product-row {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.metal-card.visible,
+.product-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* respect users who've asked for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .divisions-header,
+    .portfolio-section,
+    .products-section,
+    .cta-banner,
+    .metal-card,
+    .product-row {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+        .materials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h2.hero-title {
+            font-size: clamp(30px, 4vw, 50px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            color: var(--white);
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.75;
+            max-width: 680px;
+            font-weight: 300;
+        }
+
+        .section-intro {
+            max-width: 760px;
+            margin: 18px auto 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .divisions-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .divisions-header h2 {
+            font-size: 2.3rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .divisions-header p {
+            font-size: 16px;
+            color: var(--slate);
+            margin-top: 16px;
+            font-weight: 300;
+
+        }
+
+        /* 2. Grid Container Layout (Controls the 4 in a row distribution) */
+        /* Main Section Wrapper to space the two categories */
+        .portfolio-section {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 80px;
+            /* Air gaps between category layers */
+            margin: 50px auto;
+        }
+
+        /* Last category component removes extra bottom whitespace */
+        .portfolio-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* 2. Top Group Label / Section Title Dashboard Styling */
+        .group-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 0 0 40px 0;
+            color: #4EC9C9;
+            /* Electric cyan accent text */
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .group-label::before,
+        .group-label::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background-color: #1e3a5f;
+            /* Decorative layout alignment lines */
+        }
+
+        /* 3. Reusable 4-in-a-Row Main Grid Layout Wrapper */
+        .metals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 4. Reusable Metal Card Component Shape Configuration */
+        .metal-card {
+            background-color:var(--navy);
+            /* Dark navy card body fill */
+            border: 1px solid #14253d;
+            /* Muted grid border outline */
+            border-radius: 16px;
+            /* Smooth rounded borders */
+            padding: 32px 28px;
+            /* Spacious structural inner cushion */
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Forces content tightly to the top row */
+        }
+
+        /* 5. Card Header Sub-Layout (Symbol on left, image thumbnail on right) */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 24px;
+            /* Spacing control before headings */
+        }
+
+        .metal-symbol {
+            color: #4EC9C9;
+            /* High contrast electric cyan hex */
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .header-icon {
+            width: 75px;
+            /* Controls absolute image scale metrics */
+            height: 75px;
+            object-fit: contain;
+            /* Retains absolute graphic file proportions */
+        }
+
+        /* 6. Typography Formatting Elements */
+        .metal-name {
+            color: #ffffff;
+            /* Clean pure white headers */
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            /* Contextual alignment padding to text */
+        }
+
+        .metal-desc {
+            color: #74859a;
+            /* High readability gray body copy text */
+            font-size: 0.65rem;
+            line-height: 1.6;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* 7. Unified Screen Responsive Breakdown Breakpoints */
+        @media (max-width: 1024px) {
+            .metals-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                /* 2x2 blocks style layout */
+            }
+
+            .portfolio-section {
+                margin-bottom: 60px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .metals-grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                /* Clean single block phone stack */
+            }
+
+            .portfolio-section {
+                margin-bottom: 50px;
+            }
+        }
+
+        /**Product Categories***/
+        /* Section Wrapper */
+        .products-section {
+            width: 100%;
+            max-width: 1200px;
+            box-sizing: border-box;
+            margin: 50px auto;
+        }
+
+        /* 2. Top Group Label / Section Title Styling */
+        .group-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 0 0 40px 0;
+            color: #4EC9C9;
+            /* Electric cyan accent text */
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .group-label::before,
+        .group-label::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background-color: #1e3a5f;
+        }
+
+        /* 3. Products Grid Layout Container */
+        .products-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            /* Clean, tight gap between rows */
+        }
+
+        /* 4. Individual Product Row Row Styles */
+        .product-row {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            /* Rigid left column width, fluid right side */
+            background-color: var(--navy);
+            /* Dark navy item fill */
+            border: 1px solid #14253d;
+            /* Muted grid border outline */
+            border-radius: 12px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Left Column: Product Info Panel */
+        .product-info-panel {
+            padding: 24px;
+            background-color: rgba(20, 37, 61, 0.3);
+            /* Subtle internal tint split */
+            border-right: 1px solid #14253d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-title {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+        }
+
+        .product-subtitle {
+            color: #4EC9C9;
+            /* Teal accent text for extra descriptions */
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Right Column: Application Lists Wrapper */
+        .applications-panel {
+            padding: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            /* Wraps items cleanly inside the box container */
+            gap: 10px;
+            align-content: center;
+        }
+
+        /* Application Item Tags styling */
+        .app-tag {
+            background-color: #0d1f38;
+            border: 1px solid #1e3a5f;
+            color: #94a3b8;
+            /* High readability muted gray text */
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        /* Hover interactive styling */
+        .app-tag:hover {
+            border-color: #4EC9C9;
+            color: #ffffff;
+            background-color: #112d4e;
+        }
+
+        /* 5. Fluid Responsive Breakdown for tablets/phones */
+        @media (max-width: 850px) {
+            .product-row {
+                grid-template-columns: 1fr;
+                /* Stacks column boxes on top of each other */
+            }
+
+            .product-info-panel {
+                border-right: none;
+                border-bottom: 1px solid #14253d;
+                padding: 20px;
+            }
+
+            .applications-panel {
+                padding: 20px;
+            }
+        }
+
+        /* 2. Main CTA Banner Layout Container */
+        .cta-banner {
+            background-color: var(--bg-main);
+            /* Replaced yellow with your main navy background */
+            border: 1px solid rgba(139, 168, 196, 0.2);
+            /* Uses --slate variable with a low 20% opacity border */
+            border-radius: 16px;
+            /* Matches the smooth curvature of your metal cards */
+            width: 100%;
+            max-width: 1200px;
+            /* Ensures horizontal alignment with upper page grids */
+            padding: 32px 36px;
+            box-sizing: border-box;
+            margin: 40px auto;
+            /* Center aligns container automatically */
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+        }
+
+        /* 2. Text System Color Shift */
+        .cta-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cta-heading {
+            color: #ffffff;
+            /* High contrast clean white header text */
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .cta-details {
+            color: var(--slate);
+            /* Swapped dark text out for your custom slate variable text color */
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* High Contrast Interactive Contact Hyperlinks */
+        .cta-link {
+            color: var(--teal);
+            /* Links highlight natively using your --teal variable mapping */
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .cta-link:hover {
+            border-color: var(--brand-primary);
+            /* Adds responsive clean accent underline state */
+        }
+
+        /* 3. Action Button Palette Overhaul */
+        .cta-button {
+            background-color: var(--brand-primary);
+            /* Button fill completely mapped to your theme teal */
+            color: var(--bg-main);
+            /* Deep navy dark text color inside the button for maximum readability */
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            padding: 14px 28px;
+            border-radius: 8px;
+            /* Softer border curve profile */
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(78, 201, 201, 0.25);
+            /* Subtle glowing teal cast shadow drop profile */
+            transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+        }
+
+        /* Button Interaction States */
+        .cta-button:hover {
+            background-color: var(--teal2);
+            /* Seamlessly morphs to your bright --teal2 variant color level */
+            box-shadow: 0 4px 20px rgba(125, 218, 218, 0.4);
+            /* Glow intensifies on active cursor focus */
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
+        /* 4. Responsive Breakdown Configuration */
+        @media (max-width: 820px) {
+            .cta-banner {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                padding: 32px 24px;
+                gap: 24px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Logo/Arraycom_Logo_White_Text.png" alt="Arraycom">
+        </div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html">HOME</a></li>
+                <li class="has-dropdown">
+                    <a href="#">VERTICALS</a>
+                    <ul class="dropdown">
+                        <li><a href="/verticals/satellite.html">Satellite Communications</a></li>
+                        <li><a href="/verticals/broadcast.html">Broadcast &amp; Terrestrial</a></li>
+                        <li><a href="/verticals/defence.html">Command, Control &amp; Surveillance</a></li>
+                        <li><a href="/verticals/solar.html">Solar &amp; Clean Energy</a></li>
+                        <li><a href="/verticals/tfm.html">Thick Film Materials</a></li>
+                        <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">PROJECTS</a></li>
+                <li><a href="About.html">ABOUT US</a></li>
+                <li><a href="../Contact.html" class="cta-btn">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ── HERO ─────────────────────────────────────── -->
+    <section id="hero">
+
+        <div class="section-tag">Vertical · Advanced Materials</div>
+        <h2 class="hero-title">Thick Film Materials</h>
+            <p class="hero-sub">
+                We develop thick film materials using carefully selected precious and base metals, built for strong electrical performance and long-term reliability in electronic applications.
+            </p>
+
+    </section>
+    <div class="divisions-header">
+        <div class="section-tag ">Materials</div>
+        <h2 class="section-title">Metals We Work <span class="hl">With</span></h2>
+        <p>Our material portfolio spans precious metals used for conductivity and stability, alongside base and engineering metals for broader industrial applications.</p>
+    </div>
+
+    <div class="portfolio-section">
+
+        <div class="group-label">Precious Metals</div>
+
+        <div class="metals-grid">
+            <!-- Silver -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Ag</div>
+                    <img src="../Images/metals/silver.png" alt="Silver" class="header-icon">
+                </div>
+                <div class="metal-name">Silver</div>
+                <div class="metal-desc">The primary conductive element in our thick film conductor systems — chosen for its strong electrical conductivity and adhesion.</div>
+            </div>
+
+            <!-- Palladium -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Pd</div>
+                    <img src="../Images/metals/palladium.png" alt="Palladium" class="header-icon">
+                </div>
+                <div class="metal-name">Palladium</div>
+                <div class="metal-desc">Combined with silver in our conductor formulations to improve chemical stability and resistance to migration over time.</div>
+            </div>
+
+            <!-- Platinum -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Pt</div>
+                    <img src="../Images/metals/platinum.png" alt="Platinum" class="header-icon">
+                </div>
+                <div class="metal-name">Platinum</div>
+                <div class="metal-desc">Used in specialised compositions where thermal and chemical stability matter most, even under demanding conditions.</div>
+            </div>
+
+            <!-- Ruthenium -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Ru</div>
+                    <img src="../Images/metals/ruthenium.png" alt="Ruthenium" class="header-icon">
+                </div>
+                <div class="metal-name">Ruthenium</div>
+                <div class="metal-desc">Used as ruthenium oxide in our resistor materials, giving precise and stable resistance characteristics.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CATEGORY 2: BASE & ENGINEERING METALS ================= -->
+    <div class="portfolio-section">
+        <div class="group-label">Base &amp; Engineering Metals</div>
+
+        <div class="metals-grid">
+            <!-- Aluminium -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Al</div>
+
+                </div>
+                <div class="metal-name">Aluminium</div>
+                <div class="metal-desc">Powders and flakes used industry-wide as conductive fillers in EMI/RFI shielding composites, gaskets and coatings — valued for their light weight and conductivity.</div>
+            </div>
+
+            <!-- Copper -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Cu</div>
+
+                </div>
+                <div class="metal-name">Copper</div>
+                <div class="metal-desc">Powders used in conductive pastes and, combined with nickel, in resistor paste formulations as a nitrogen-fireable alternative to noble-metal systems.</div>
+            </div>
+
+            <!-- Nickel -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Ni</div>
+
+                </div>
+                <div class="metal-name">Nickel</div>
+                <div class="metal-desc">Powders used in thick film conductor pastes for multilayer electronic components, and widely used for internal electrodes in multilayer ceramic capacitors.</div>
+            </div>
+
+            <!-- Titanium -->
+            <div class="metal-card">
+                <div class="card-header">
+                    <div class="metal-symbol">Ti</div>
+
+                </div>
+                <div class="metal-name">Titanium</div>
+                <div class="metal-desc">Used in specialised alloy compositions for resistive thin films, valued for maintaining stable resistivity through repeated heating-cooling cycles.</div>
+            </div>
+        </div>
+    </div>
+    <div class="products-section">
+        <!-- Header Block Component -->
+        <div class="group-label">Products &amp; Applications</div>
+
+        <!-- Main Categories Stack Layout Container -->
+        <div class="products-container">
+
+            <!-- Row 1: Solar Paste -->
+            <div class="product-row">
+                <div class="product-info-panel">
+                    <h3 class="product-title">Solar Paste</h3>
+                </div>
+                <div class="applications-panel">
+                    <span class="app-tag">Front Ag Paste</span>
+                    <span class="app-tag">Back Ag Paste</span>
+                    <span class="app-tag">Al Paste for PhotoVolatic cell Application</span>
+                </div>
+            </div>
+
+            <!-- Row 2: Conductive Paste -->
+            <div class="product-row">
+                <div class="product-info-panel">
+                    <h3 class="product-title">Conductive Paste</h3>
+                    <p class="product-subtitle">Ag | Pd | Pt Conductor</p>
+                </div>
+                <div class="applications-panel">
+                    <span class="app-tag">Hybrid Micro Circuit</span>
+                    <span class="app-tag">Mica Multilayer Ceramic Capacitors</span>
+                    <span class="app-tag">Metal Oxide Varistor</span>
+                    <span class="app-tag">NTC Thermistor Disc</span>
+                    <span class="app-tag">PZT Application</span>
+                    <span class="app-tag">Air Drying Application</span>
+                </div>
+            </div>
+
+            <!-- Row 3: Membrane Ink -->
+            <div class="product-row">
+                <div class="product-info-panel">
+                    <h3 class="product-title">Membrane Ink</h3>
+                </div>
+                <div class="applications-panel">
+                    <span class="app-tag">Various Types of Membrane Paste (Ink) for membrane Keypads and Keyboards</span>
+                </div>
+            </div>
+
+            <!-- Row 4: Resistor Paste -->
+            <div class="product-row">
+                <div class="product-info-panel">
+                    <h3 class="product-title">Resistor Paste</h3>
+                </div>
+                <div class="applications-panel">
+                    <span class="app-tag">Thin Film Resistor</span>
+                    <span class="app-tag">Chip Resistor</span>
+                    <span class="app-tag">Resistor Network</span>
+                    <span class="app-tag">Hybrid Micro-Circuit Application</span>
+                    <span class="app-tag">Potentiometer</span>
+                </div>
+            </div>
+
+            <!-- Row 5: Overglaze Paste -->
+            <div class="product-row">
+                <div class="product-info-panel">
+                    <h3 class="product-title">Overglaze Paste</h3>
+                    <p class="product-subtitle">Insulation Paste</p>
+                </div>
+                <div class="applications-panel">
+                    <span class="app-tag">For Hybrid Micro Circuit &amp; Other Applications</span>
+                </div>
+            </div>
+
+            <!-- Row 6: Precious Metal Powder -->
+            <div class="product-row">
+                <div class="product-info-panel">
+                    <h3 class="product-title">Precious Metal Powder</h3>
+                </div>
+                <div class="applications-panel">
+                    <span class="app-tag">Ag Powder &amp; Flakes</span>
+                    <span class="app-tag">Pd Powder</span>
+                    <span class="app-tag">Pt Powder</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="cta-banner">
+
+        <!-- Text Information Box (Left Hand Side) -->
+        <div class="cta-text-content">
+            <h2 class="cta-heading">For Any Queries related to our Thick Film Material Division</h2>
+            <p class="cta-details">
+                Email us on : <a href="mailto:info@arraycom.co.in" class="cta-link">marketing@arraycom.co.in</a> |
+                Call us : <a href="tel:+919327135128" class="cta-link">+91 93271 35128</a>
+            </p>
+        </div>
+
+        <!-- Action Shortcut Link Wrapper (Right Hand Side) -->
+        <a href="#inquiry-form" class="cta-button">Inquiry Online</a>
+
+    </div>
+    <!-- ── FOOTER ─────────────────────────────── -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-container">
+
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand -->
+                <div class="footer-col info">
+                    <img src="Logo/Arraycom_Logo_White_Text.png" alt="Arraycom (India) Ltd." class="footer-logo">
+                    <p>Engineering excellence since 1992. India's premier system integrator in professional electronics, defence
+                        communications and clean energy.</p>
+                </div>
+
+                <!-- Col 2: Verticals A -->
+                <div class="footer-col">
+                    <h4>Verticals</h4>
+                    <ul>
+                        <li><a href="/verticals/satellite.html">Satellite Communications</a></li>
+                        <li><a href="/verticals/broadcast.html">Broadcast &amp; Terrestrial</a></li>
+                        <li><a href="/verticals/defence.html">Command, Control &amp; Surveillance</a></li>
+                        <li><a href="/verticals/solar.html">Solar &amp; Clean Energy</a></li>
+                        <li><a href="/verticals/thickfilm.html">Thick Film Materials</a></li>
+                        <li><a href="/verticals/pcb.html">PCB Manufacturing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col">
+                    <h4>Corporate Address</h4>
+                    <address>
+                        Arraycom (India) Ltd.<br>
+                        Electronic Zone, GIDC<br>
+                        Gandhinagar — 382028<br>
+                        Gujarat, India
+                    </address>
+
+                    <div class="footer-contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal);flex-shrink:0">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
+                        </svg>
+                        <a href="tel:+919327035105">+91 93270 35105</a>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal);flex-shrink:0">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        <a href="mailto:info@arraycom.co.in">info@arraycom.co.in</a>
+                    </div>
+                </div>
+
+            </div><!-- /footer-grid -->
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom">
+            <p>© 2026 Arraycom (India) Ltd. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const revealTargets = document.querySelectorAll(
+            '.divisions-header, .portfolio-section, .products-section, .cta-banner, .metal-card, .product-row'
+        );
+
+        // Stagger cards within each grid so they don't all pop at once
+        const cardGroups = document.querySelectorAll('.metals-grid, .products-container');
+        cardGroups.forEach(group => {
+            [...group.children].forEach((child, i) => {
+                child.style.transitionDelay = `${i * 80}ms`;
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // reveal once, don't re-trigger on scroll up
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        revealTargets.forEach(el => observer.observe(el));
+    });
+</script>
+</body>
+
+</html>

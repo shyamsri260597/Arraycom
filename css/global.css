@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+ :root {
+     /* Your raw colors */
+     --navy: #080E18;
+     --teal: #4EC9C9;
+     --blue: #3A7AB8;
+     --text: #D0DFF0;
+     --muted: #3D5470;
+     --amber:  #E8A020;
+     --teal2:  #7DDADA;
+      --slate:  #8BA8C4;
+         --teal-g: #579898;
+
+
+
+     /* Functional Mapping */
+     --brand-primary: var(--teal);
+     --brand-secondary: var(--blue);
+     --bg-main: var(--navy);
+     --text-main: var(--text);
+     --navygradient:background: linear-gradient(to bottom, #000080, #000033);
+ }
+
+ *,
+ *::before,
+ *::after {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+html {
+  scroll-behavior: smooth;
+}
+
+ body {
+     margin: 0;
+     padding: 0;
+      font-family: "Inter", sans-serif;
+     background: #020617;
+     color: white;
+     position: relative;
+     z-index: 1
+ }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 40% at  5% 12%, rgba(168,223,223,0.65) 0%, rgba(78,200,192,0.35) 30%, transparent 65%),
+      radial-gradient(ellipse 45% 35% at 22% 28%, rgba(78,200,192,0.40) 0%, rgba(58,122,104,0.20) 40%, transparent 65%),
+      radial-gradient(ellipse 40% 35% at 42% 18%, rgba(58,122,104,0.25) 0%, transparent 55%),
+      radial-gradient(ellipse 35% 30% at 62% 22%, rgba(43,78,106,0.30)  0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 88% 45%, rgba(15,30,48,0.80)   0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 15% 75%, rgba(46,110,96,0.12)  0%, transparent 50%),
+      linear-gradient(135deg, #152236 0%, #0F1E30 30%, #0B1720 60%, #080E18 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* subtle dot grid */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(78,201,201,0.08) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+ .btn-primary {
+     background-color: var(--brand-primary);
+     color: var(--navy);
+     /* Dark text on light teal for readability */
+ }
+
+ .btn-secondary {
+     background-color: var(--brand-secondary);
+     color: white;
+ }
+  .btn-primary {
+            background: var(--teal);
+            color: #080E18;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal2);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            background: var(--teal2);
+            color: #080E18;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(78, 201, 201, 0.35);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s, transform 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(78, 201, 201, 0.5);
+            background: rgba(78, 201, 201, 0.08);
+            color: var(--teal2);
+            transform: translateY(-2px);
+        }

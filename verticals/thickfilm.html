@@ -8,348 +8,106 @@
 
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/headerfooter.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
+     <style>
+         /* 2. Grid Container Layout (Controls the 4 in a row distribution) */
+        .card-row-container {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            /* Exactly 4 equal columns */
+            gap: 24px;
+            /* Space between cards */
+            width: 100%;
+            max-width: 1200px;
+            /* Limits maximum row stretch */
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #020817;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-          body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-       radial-gradient(ellipse 55% 40% at 5% 12%,  rgba(168,223,223,0.65) 0%, rgba(78,200,192,0.35) 50%, transparent 100%),
-  radial-gradient(ellipse 45% 35% at 22% 28%, rgba(78,200,192,0.40) 0%, rgba(58,122,104,0.20) 50%, transparent 100%),
-  radial-gradient(ellipse 40% 35% at 42% 18%, rgba(58,122,104,0.25) 0%, transparent 100%),
-  radial-gradient(ellipse 35% 30% at 62% 22%, rgba(43,78,106,0.30) 0%, rgba(13,27,68,0.20) 60%, transparent 100%),
-  radial-gradient(ellipse 50% 50% at 88% 45%, rgba(13,27,68,0.80) 0%, transparent 100%),
-  radial-gradient(ellipse 40% 40% at 15% 75%, rgba(46,110,96,0.12) 0%, transparent 100%),
-  linear-gradient(135deg, #152236 0%, #0F1E30 35%, #0B1720 65%, #0D1B44 80%, #060D1A 100%);
-
-
-    pointer-events: none;
-    z-index: 0;
-  }
-
-
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: auto;
-        }
-
-        /* =========================
-           HERO SECTION
-        ========================= */
-
-        .vertical-hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 6rem 0;
-
-            background:
-                linear-gradient(rgba(2, 8, 23, 0.82),
-                    rgba(2, 8, 23, 0.9)),
-                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600")
-                center/cover;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero-tag {
-            color: #00bfff;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-
-        .hero-title {
-            font-size: 5rem;
-            line-height: 1;
-            margin-bottom: 2rem;
-            font-weight: 800;
-        }
-
-        .hero-title span {
-            color: #00bfff;
-        }
-
-        .hero-text {
-            color: rgba(255,255,255,0.75);
-            line-height: 2;
-            max-width: 700px;
-            font-size: 1.05rem;
-        }
-
-        /* =========================
-           ABOUT SECTION
-        ========================= */
-
-        .aboutdiv-section {
-            padding: 7rem 0;
-            background:
-    linear-gradient(
-        135deg,
-        #020617 0%,
-        #020817 45%,
-        var(--navy) 100%
-    );
-    
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-image img {
-            border-radius: 24px;
-            min-height: 550px;
-            object-fit: cover;
-            width:100%;
-        }
-
-        .section-tag {
-            color: #00bfff;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        .section-title {
-            font-size: 4rem;
-            line-height: 1;
-            margin-bottom: 2rem;
-            font-weight: 800;
-        }
-
-        .section-title span {
-            color: #00bfff;
-        }
-
-        .section-text {
-            color: rgba(255,255,255,0.75);
-            line-height: 2;
-            margin-bottom: 1.5rem;
-        }
-
-        /* =========================
-           SERVICES
-        ========================= */
-
-        .services-section {
-            padding: 7rem 0;
-            background: #020817;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .service-card {
-            padding: 2.5rem;
-            border-radius: 24px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            transition: 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0,191,255,0.35);
-        }
-
-        .service-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #00bfff;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h4 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .service-card p {
-            color: rgba(255,255,255,0.72);
-            line-height: 1.8;
-        }
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .projects-section {
-            padding: 7rem 0;
-            background:
-                linear-gradient(
-                    to bottom,
-                    #020817,
-                    #06152d
-                );
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 24px;
-            min-height: 420px;
-        }
-
-        .project-card img {
-            width: 100%;
-            display: block;
-        
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s ease;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .project-overlay {
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(0,0,0,0.85),
-                    rgba(0,0,0,0.1)
-                );
+        /* 3. The Individual Card Styling */
+        .element-card {
+            background-color: var(--navy);
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            padding: 24px;
+            /* Slightly reduced padding for a tighter container */
+            box-sizing: border-box;
 
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-
-            padding: 2rem;
+            justify-content: flex-start;
+            /* Forces content to stick to the top instead of expanding */
+            height: fit-content;
+            /* Prevents unnecessary vertical stretching */
         }
 
-        .project-overlay h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        /* 4. Inside Text Formatting */
+        .element-symbol {
+            color: #64ffda;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0;
+            /* Zeroed out to match the flex top line */
         }
 
-        .project-overlay p {
-            color: rgba(255,255,255,0.72);
-            line-height: 1.7;
+        .element-name {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            /* Tightened margin below "Silver" */
         }
 
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact-section {
-            padding: 7rem 0;
-            background: #020617;
+        /* 4. Description sits directly underneath */
+        .element-desc {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
         }
 
-        .contact-box {
-            text-align: center;
-            padding: 4rem;
-            border-radius: 30px;
-
-            background:
-                linear-gradient(
-                    to right,
-                    rgba(255,255,255,0.04),
-                    rgba(255,255,255,0.02)
-                );
-
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .contact-text {
-            color: rgba(255,255,255,0.72);
-            line-height: 2;
-            max-width: 700px;
-            margin: 2rem auto;
-        }
-
-        .contact-details {
+        .card-header {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 12px;
+            /* Drastically reduced space beneath Ag and the image */
         }
 
-        .contact-item {
-            padding: 1rem 1.5rem;
-            border-radius: 14px;
-
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+        /* Explicit size controls for your new header image */
+        .header-icon {
+            width: 100px;
+            /* Increased to 100px */
+            height: 100px;
+            /* Increased to 100px */
+            object-fit: contain;
+            /* Prevents distortion */
+            border-radius: 8px;
+            /* Clean rounded corners for larger image */
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media(max-width:1100px) {
-
-            .about-grid,
-            .services-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-title {
-                font-size: 4rem;
-            }
-
-            .section-title {
-                font-size: 3rem;
+        /* 5. Fluid Responsive Breakdown for tablets/phones */
+        @media (max-width: 1024px) {
+            .card-row-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                /* 2x2 grid on medium screens */
             }
         }
 
-        @media(max-width:768px) {
-
-            .hero-title {
-                font-size: 2.8rem;
+        @media (max-width: 600px) {
+            .card-row-container {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                /* 1 column stacked on phones */
+                aspect-ratio: auto;
+                /* Allow height to flow freely on tiny screens */
             }
 
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .contact-box {
-                padding: 2rem;
+            .element-card {
+                aspect-ratio: auto;
+                height: auto;
             }
         }
-    </style>
+     </style>
+    
 </head>
 
 <body>
@@ -405,7 +163,8 @@
         <div class="hero-content">
 
             <p class="hero-tag">
-                Lorem Ipsum Vertical
+                THICK FILM MATERIALS
+
             </p>
 
             <h1 class="hero-title">
