@@ -78,6 +78,11 @@
     opacity: 1;
     transform: translateY(0);
 }
+ section.block {
+    padding: 70px 5vw;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
 
 /* stagger each metal card slightly for a nicer cascade */
 .metal-card,
@@ -311,132 +316,173 @@
 
         /**Product Categories***/
         /* Section Wrapper */
-        .products-section {
-            width: 100%;
-            max-width: 1200px;
-            box-sizing: border-box;
-            margin: 50px auto;
-        }
+        /* ── Section wrapper ── */
+.products-section {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 50px auto;
+}
 
-        /* 2. Top Group Label / Section Title Styling */
-        .group-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin: 0 0 40px 0;
-            color: #4EC9C9;
-            /* Electric cyan accent text */
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+/* ── Header block: tag, title, description — all centered ── */
+.products-section > .section-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 auto 16px;
+}
 
-        .group-label::before,
-        .group-label::after {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background-color: #1e3a5f;
-        }
+.products-section > .section-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal);
+}
 
-        /* 3. Products Grid Layout Container */
-        .products-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            /* Clean, tight gap between rows */
-        }
+.products-section > .section-title {
+    text-align: center;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 500;
+    letter-spacing: -1.2px;
+    color: var(--text);
+    line-height: 1.08;
+    margin-bottom: 16px;
+}
 
-        /* 4. Individual Product Row Row Styles */
-        .product-row {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            /* Rigid left column width, fluid right side */
-            background-color: var(--navy);
-            /* Dark navy item fill */
-            border: 1px solid #14253d;
-            /* Muted grid border outline */
-            border-radius: 12px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+.products-section > .section-title .hl {
+    background: var(--teal);
+    font-weight: 800;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-        /* Left Column: Product Info Panel */
-        .product-info-panel {
-            padding: 24px;
-            background-color: rgba(20, 37, 61, 0.3);
-            /* Subtle internal tint split */
-            border-right: 1px solid #14253d;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.products-section > .section-desc {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 50px;
+    color: var(--slate);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+}
 
-        .product-title {
-            color: #ffffff;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0 0 6px 0;
-        }
+/* ── Group label (small eyebrow above the product rows) ── */
+.group-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 0 40px 0;
+    color: #4EC9C9;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
 
-        .product-subtitle {
-            color: #4EC9C9;
-            /* Teal accent text for extra descriptions */
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin: 0;
-        }
+.group-label::before,
+.group-label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background-color: #1e3a5f;
+}
 
-        /* Right Column: Application Lists Wrapper */
-        .applications-panel {
-            padding: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            /* Wraps items cleanly inside the box container */
-            gap: 10px;
-            align-content: center;
-        }
+/* ── Product rows ── */
+.products-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
-        /* Application Item Tags styling */
-        .app-tag {
-            background-color: #0d1f38;
-            border: 1px solid #1e3a5f;
-            color: #94a3b8;
-            /* High readability muted gray text */
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
+.product-row {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    background-color: var(--navy);
+    border: 1px solid #14253d;
+    border-radius: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        /* Hover interactive styling */
-        .app-tag:hover {
-            border-color: #4EC9C9;
-            color: #ffffff;
-            background-color: #112d4e;
-        }
+.product-row:hover {
+    border-color: rgba(78, 201, 201, 0.4);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
 
-        /* 5. Fluid Responsive Breakdown for tablets/phones */
-        @media (max-width: 850px) {
-            .product-row {
-                grid-template-columns: 1fr;
-                /* Stacks column boxes on top of each other */
-            }
+.product-info-panel {
+    padding: 24px;
+    background-color: rgba(20, 37, 61, 0.3);
+    border-right: 1px solid #14253d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-            .product-info-panel {
-                border-right: none;
-                border-bottom: 1px solid #14253d;
-                padding: 20px;
-            }
+.product-title {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+}
 
-            .applications-panel {
-                padding: 20px;
-            }
-        }
+.product-subtitle {
+    color: #4EC9C9;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0;
+}
 
+.applications-panel {
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: center;
+}
+
+.app-tag {
+    background-color: #0d1f38;
+    border: 1px solid #1e3a5f;
+    color: #94a3b8;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.app-tag:hover {
+    border-color: #4EC9C9;
+    color: #ffffff;
+    background-color: #112d4e;
+}
+
+/* ── Responsive ── */
+@media (max-width: 850px) {
+    .product-row {
+        grid-template-columns: 1fr;
+    }
+
+    .product-info-panel {
+        border-right: none;
+        border-bottom: 1px solid #14253d;
+        padding: 20px;
+    }
+
+    .applications-panel {
+        padding: 20px;
+    }
+}
         /* 2. Main CTA Banner Layout Container */
         .cta-banner {
             background-color: var(--bg-main);
@@ -538,6 +584,205 @@
                 align-items: center;
                 padding: 32px 24px;
                 gap: 24px;
+            }
+        }
+        
+        /* ─────────────────────────────────────────────
+           INDUSTRIES WE SERVE — button-controlled scroll
+           (no autoplay — user must click prev/next)
+        ───────────────────────────────────────────── */
+        .industries-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 60px auto;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .industries-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+      .industries-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.industries-header-text {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.industries-header-text h2 {
+    font-size: 2.1rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.industries-header-text p {
+    font-size: 15px;
+    color: var(--slate);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.industries-controls {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    .industries-header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .industries-controls {
+        grid-column: 1;
+        justify-self: center;
+    }
+}
+        .industries-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: #0d1f38;
+            border: 1px solid #1e3a5f;
+            color: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .industries-arrow:hover {
+            border-color: var(--teal);
+            background-color: #112d4e;
+            color: #ffffff;
+        }
+
+        .industries-arrow:active {
+            transform: scale(0.94);
+        }
+
+        .industries-arrow:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .industries-arrow:disabled:hover {
+            border-color: #1e3a5f;
+            background-color: #0d1f38;
+            color: var(--teal);
+        }
+
+        .industries-arrow svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Scroll track — explicit scroll only, no CSS animation/autoplay */
+        .industries-track-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industries-track {
+            display: flex;
+            gap: 22px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 4px;
+
+            /* hide native scrollbar since we provide our own buttons */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .industries-track::-webkit-scrollbar {
+            display: none;
+        }
+
+         .industry-card {
+            /* fits exactly 3 full cards on desktop — no partial card at the edge */
+            flex: 0 0 calc((100% - 2 * 22px) / 3);
+            scroll-snap-align: start;
+            background-color: #071324;
+            border: 1px solid #14253d;
+            border-radius: 16px;
+            padding: 30px 26px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+
+        .industry-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--teal);
+            background-color: #0a1a30;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(78, 201, 201, 0.15);
+        }
+
+        .industry-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(78, 201, 201, 0.08);
+            border: 1px solid rgba(78, 201, 201, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .industry-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .industry-title {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+
+        .industry-desc {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        @media (max-width: 640px) {
+            .industry-card {
+                flex: 0 0 82vw;
+            }
+
+            .industries-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -682,9 +927,14 @@
             </div>
         </div>
     </div>
-    <div class="products-section">
+    <div class="products-section block">
         <!-- Header Block Component -->
-        <div class="group-label">Products &amp; Applications</div>
+          <div class="section-tag">Product Range</div>
+  <h2 class="section-title">Product <span class="hl">Categories</span></h2>
+  <p class="section-desc">Six material categories, engineered for specific roles across conductivity, resistance, insulation and protection.</p>
+
+
+       
 
         <!-- Main Categories Stack Layout Container -->
         <div class="products-container">
@@ -764,6 +1014,93 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+   
+     <!-- ═══════════════ INDUSTRIES WE SERVE ═══════════════ -->
+    <div class="industries-section">
+         
+        <div class="industries-header">
+            <div class="industries-header-text">
+                <div class="section-tag">Application Areas</div>
+  <h2 class="section-title">Industries We <span class="hl">Serve</span></h2>
+
+            </div>
+            <div class="industries-controls">
+                <button type="button" class="industries-arrow" id="industries-prev" aria-label="Scroll left">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button type="button" class="industries-arrow" id="industries-next" aria-label="Scroll right">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="industries-track-wrapper">
+            <div class="industries-track" id="industries-track">
+
+                <!-- Electronics & Semiconductor Manufacturing -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM2 9h2M2 15h2M20 9h2M20 15h2M9 2v2M15 2v2M9 20v2M15 20v2"/></svg>
+                    </div>
+                    <h3 class="industry-title">Electronics &amp; Semiconductor Manufacturing</h3>
+                    <p class="industry-desc">We supply conductive pastes, silver powders and dielectric materials
+                        used directly in electronic component manufacturing and hybrid circuit production.</p>
+                </div>
+
+                <!-- Automotive Electronics -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 100 4 2 2 0 000-4zM19 17a2 2 0 100 4 2 2 0 000-4zM5 17l1.5-6h11L19 17M6.5 11l1-4h9l1 4"/></svg>
+                    </div>
+                    <h3 class="industry-title">Automotive Electronics</h3>
+                    <p class="industry-desc">Our silver-based conductive pastes and ruthenium resistor pastes are
+                        used in automotive electronics and sensor applications.</p>
+                </div>
+
+                <!-- Telecommunications -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+                    </div>
+                    <h3 class="industry-title">Telecommunications</h3>
+                    <p class="industry-desc">Our hybrid circuit materials and conductive pastes support the circuit
+                        terminations and electronic assemblies used in telecom hardware.</p>
+                </div>
+
+                <!-- Renewable Energy & Solar -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    </div>
+                    <h3 class="industry-title">Renewable Energy &amp; Solar</h3>
+                    <p class="industry-desc">Our silver powders and flakes are used for solar cell metallization —
+                        a core material input for photovoltaic manufacturing.</p>
+                </div>
+
+                <!-- Aerospace & Defence -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 19h20L12 2zM12 2v14M8 15h8"/></svg>
+                    </div>
+                    <h3 class="industry-title">Aerospace &amp; Defence</h3>
+                    <p class="industry-desc">Our platinum-based compositions are built for thermal and chemical
+                        stability under demanding operating conditions, suited to aerospace and defence
+                        applications.</p>
+                </div>
+
+                <!-- Industrial Automation -->
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                    </div>
+                    <h3 class="industry-title">Industrial Automation</h3>
+                    <p class="industry-desc">Our resistor pastes and sensor-grade materials support the industrial
+                        controls and sensors used in automation systems.</p>
+                </div>
+
+            </div>
         </div>
     </div>
     <div class="cta-banner">
@@ -860,9 +1197,9 @@
     </footer>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const revealTargets = document.querySelectorAll(
-            '.divisions-header, .portfolio-section, .products-section, .cta-banner, .metal-card, .product-row'
-        );
+       const revealTargets = document.querySelectorAll(
+    '.divisions-header, .portfolio-section, .products-section, .cta-banner, .metal-card, .product-row, .industries-section, .industry-card'
+);
 
         // Stagger cards within each grid so they don't all pop at once
         const cardGroups = document.querySelectorAll('.metals-grid, .products-container');
@@ -886,6 +1223,40 @@
 
         revealTargets.forEach(el => observer.observe(el));
     });
+     // ── Industries carousel: explicit button-controlled scroll only ──
+        // No autoplay, no interval, no automatic movement — scrolls ONLY on click.
+        (function () {
+            const track = document.getElementById('industries-track');
+            const prevBtn = document.getElementById('industries-prev');
+            const nextBtn = document.getElementById('industries-next');
+            if (!track || !prevBtn || !nextBtn) return;
+
+            function cardScrollAmount() {
+                const card = track.querySelector('.industry-card');
+                if (!card) return 340;
+                const style = window.getComputedStyle(track);
+                const gap = parseFloat(style.columnGap || style.gap || '30');
+                return card.getBoundingClientRect().width + gap;
+            }
+
+            function updateArrowState() {
+                const maxScroll = track.scrollWidth - track.clientWidth - 2; // small tolerance
+                prevBtn.disabled = track.scrollLeft <= 0;
+                nextBtn.disabled = track.scrollLeft >= maxScroll;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                track.scrollBy({ left: -cardScrollAmount(), behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: cardScrollAmount(), behavior: 'smooth' });
+            });
+
+            track.addEventListener('scroll', updateArrowState);
+            window.addEventListener('resize', updateArrowState);
+            updateArrowState();
+        })();
 </script>
 </body>
 
