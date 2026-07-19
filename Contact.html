@@ -23,7 +23,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/headerfooter.css" />
 
@@ -34,26 +33,6 @@
         #contact-hero {
             padding: 160px 8vw 90px;
             max-width: 900px;
-        }
-
-        #contact-hero .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--teal);
-            margin-bottom: 16px;
-        }
-
-        #contact-hero .section-tag::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 1px;
-            background: var(--teal);
         }
 
         #contact-hero h1 {
@@ -305,6 +284,16 @@
             color: var(--muted);
         }
 
+        /* Honeypot — visually removed but still in the DOM for bots to fill.
+           Not display:none, since some bots skip those. */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
         @media (max-width: 900px) {
             .contact-wrap {
                 grid-template-columns: 1fr;
@@ -403,17 +392,7 @@
                 </div>
             </div>
 
-            <div class="contact-social">
-                <div class="reach-label">Follow Us</div>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 11.02-4.12 2.06 2.06 0 01-.02 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
-                    </a>
-                    <a href="#" aria-label="X / Twitter">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.2-9.3L1 2h7.1l4.9 6.3L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
-                    </a>
-                </div>
-            </div>
+             
         </div>
 
         <!-- Right: Form -->
@@ -422,6 +401,13 @@
             <p>Fill in the details below and our team will get back to you shortly.</p>
 
             <form id="arraycom-contact-form">
+                <!-- Honeypot: hidden from people. If it arrives filled, it's a bot. -->
+                <div class="hp-field" aria-hidden="true">
+                    <label for="company_website">Company website</label>
+                    <input type="text" id="company_website" name="company_website"
+                           tabindex="-1" autocomplete="off">
+                </div>
+
                 <div class="form-grid">
                     <div class="form-field">
                         <label for="full-name">Full Name <span class="req">*</span></label>
@@ -559,11 +545,51 @@
     </footer>
 
     <script>
-        // Basic client-side handling — swap this for your real form endpoint / backend integration.
-        document.getElementById('arraycom-contact-form').addEventListener('submit', function (e) {
+        // Paste your Apps Script Web App URL here (ends in /exec).
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWiFrOt0yGoxkabSPltvpnrn58cD0C_593CH0jrzthICwUiGLP-Jk5RYGXaQvmiMFbLA/exec';
+
+        const form = document.getElementById('arraycom-contact-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Thank you for reaching out. Our team will get back to you shortly.');
-            this.reset();
+
+            // Let the browser enforce the required fields + email/consent checks.
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+
+            // FormData keeps this a "simple" request, so there's no CORS preflight.
+            fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form) })
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
+                    if (data.result === 'success') {
+                        submitBtn.textContent = 'Message sent ✓';
+                        form.reset();
+                    } else {
+                        // Server rejected the data (validation) — tell the user why.
+                        submitBtn.textContent = 'Please check the form';
+                        alert(data.message || 'Please review your details and try again.');
+                    }
+                })
+                .catch(function (err) {
+                    // Network / unexpected failure.
+                    console.error(err);
+                    submitBtn.textContent = 'Please try again';
+                    alert('Sorry — your message could not be sent just now. '
+                        + 'Please email info@arraycom.co.in directly.');
+                })
+                .finally(function () {
+                    setTimeout(function () {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }, 2500);
+                });
         });
     </script>
 </body>
