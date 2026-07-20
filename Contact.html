@@ -28,208 +28,237 @@
 
     <style>
         /* ─────────────────────────────────────────────
-           CONTACT HERO
+           CONTACT — split floating card
         ───────────────────────────────────────────── */
-        #contact-hero {
-            padding: 160px 8vw 90px;
-            max-width: 900px;
+        .contact-page {
+            padding: 130px 6vw 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        #contact-hero h1 {
-            font-size: clamp(38px, 5vw, 64px);
+        .contact-hero {
+            max-width: 720px;
+            text-align: center;
+            margin-bottom: 46px;
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(32px, 4vw, 50px);
             font-weight: 700;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
             color: #fff;
-            line-height: 1.08;
-            margin-bottom: 20px;
+            line-height: 1.12;
+            margin-bottom: 18px;
         }
 
-        #contact-hero .hero-sub {
-            font-size: 16px;
+        .contact-hero p {
             color: var(--slate);
+            font-size: 16px;
             line-height: 1.75;
-            max-width: 640px;
             font-weight: 300;
+            max-width: 620px;
+            margin: 0 auto;
         }
 
-        /* ─────────────────────────────────────────────
-           CONTACT LAYOUT (info cards left, form right)
-        ───────────────────────────────────────────── */
-        .contact-wrap {
+        .contact-card {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto 100px;
-            padding: 0 8vw;
-            box-sizing: border-box;
+            max-width: 1080px;
             display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 32px;
-            align-items: start;
-        }
-
-        /* ── Left column: reach us ── */
-        .contact-info {
-            background-color: #071324;
-            border: 1px solid #14253d;
-            border-radius: 16px;
-            padding: 36px 32px;
+            grid-template-columns: 0.9fr 1.1fr;
+            background: rgba(9, 16, 28, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 26px;
             box-sizing: border-box;
         }
 
-        .contact-info h2 {
-            color: #ffffff;
-            font-size: 1.3rem;
+        /* Left info panel — raised, sticks out top & bottom (the reference look) */
+        .contact-aside {
+            position: relative;
+            overflow: hidden;
+            margin: -34px 0;
+            padding: 46px 36px;
+            border-radius: 18px;
+            background: linear-gradient(160deg, #103049 0%, #0a1c30 55%, #081420 100%);
+            box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(78, 201, 201, 0.10);
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-aside::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -30%;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(78, 201, 201, 0.18), transparent 65%);
+            pointer-events: none;
+        }
+
+        .aside-inner {
+            position: relative;
+            width: 100%;
+        }
+
+        .contact-aside h2 {
+            color: #fff;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 28px;
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
         }
 
-        .reach-item {
-            padding: 18px 0;
-            border-top: 1px solid #14253d;
+        .aside-sub {
+            color: rgba(208, 223, 240, 0.62);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            margin-bottom: 32px;
         }
 
-        .reach-item:first-of-type {
-            border-top: none;
-            padding-top: 0;
+        .aside-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin: 0 0 34px;
+            padding: 0;
         }
 
-        .reach-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 700;
+        .aside-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .aside-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(78, 201, 201, 0.10);
+            border: 1px solid rgba(78, 201, 201, 0.22);
             color: var(--teal);
-            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .reach-value {
-            font-size: 0.95rem;
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+        .aside-icon svg { width: 16px; height: 16px; }
 
-        .reach-value a {
-            color: var(--text-main);
+        .aside-list a {
+            color: var(--text);
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
-        .reach-value a:hover {
-            color: var(--teal);
-        }
+        .aside-list a:hover { color: var(--teal); }
 
-        .contact-social {
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid #14253d;
-        }
+        .aside-social { display: flex; gap: 12px; }
 
-        .contact-social .reach-label {
-            margin-bottom: 14px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-links a {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            background: #0d1f38;
-            border: 1px solid #1e3a5f;
+        .aside-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            color: #cfe0f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #94a3b8;
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
-        .social-links a:hover {
+        .aside-social a:hover {
+            background: var(--teal);
             border-color: var(--teal);
-            color: #ffffff;
-            background: #112d4e;
+            color: var(--navy);
+            transform: translateY(-2px);
         }
 
-        /* ── Right column: form ── */
+        .aside-social svg { width: 16px; height: 16px; }
+
+        /* Right form panel */
         .contact-form-panel {
-            background-color: #071324;
-            border: 1px solid #14253d;
-            border-radius: 16px;
-            padding: 40px 40px 36px;
+            padding: 34px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             box-sizing: border-box;
         }
 
-        .contact-form-panel h2 {
-            color: #ffffff;
-            font-size: 1.3rem;
+        .form-heading {
+            color: #fff;
+            font-size: clamp(26px, 3vw, 34px);
             font-weight: 700;
-            margin-bottom: 6px;
+            letter-spacing: -0.6px;
+            line-height: 1.1;
         }
 
-        .contact-form-panel > p {
+        .form-subheading {
             color: var(--slate);
-            font-size: 0.9rem;
-            margin-bottom: 28px;
+            font-size: 0.95rem;
+            margin: 8px 0 26px;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 16px;
         }
 
         .form-field {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 7px;
         }
 
-        .form-field.full {
-            grid-column: 1 / -1;
-        }
+        .form-field.full { grid-column: 1 / -1; }
 
         .form-field label {
             font-size: 12px;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            color: var(--text-main);
+            letter-spacing: 0.3px;
+            color: var(--slate);
         }
 
-        .form-field label .req {
-            color: var(--teal);
-        }
+        .form-field label .req { color: var(--teal); }
 
         .form-field input,
         .form-field select,
         .form-field textarea {
-            background-color: #0d1f38;
-            border: 1px solid #1e3a5f;
-            border-radius: 8px;
-            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 10px;
+            padding: 13px 15px;
             font-family: inherit;
-            font-size: 0.9rem;
-            color: #ffffff;
+            font-size: 0.92rem;
+            color: #fff;
             outline: none;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
+            transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
         }
 
         .form-field textarea {
             resize: vertical;
-            min-height: 110px;
+            min-height: 120px;
         }
 
         .form-field input::placeholder,
-        .form-field textarea::placeholder {
-            color: #5a7290;
-        }
+        .form-field textarea::placeholder { color: #64789a; }
 
         .form-field input:focus,
         .form-field select:focus,
         .form-field textarea:focus {
             border-color: var(--teal);
-            background-color: #112d4e;
+            background: rgba(78, 201, 201, 0.06);
+            box-shadow: 0 0 0 3px rgba(78, 201, 201, 0.12);
         }
 
         .form-field select {
@@ -240,11 +269,13 @@
             padding-right: 36px;
         }
 
+        .form-field select option { background: #0a1626; color: #fff; }
+
         .consent-field {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         .consent-field input[type="checkbox"] {
@@ -262,30 +293,53 @@
             font-weight: 400;
         }
 
-        .consent-field a {
-            color: var(--teal);
-            text-decoration: none;
-        }
+        .consent-field a { color: var(--teal); text-decoration: none; }
+        .consent-field a:hover { text-decoration: underline; }
 
-        .consent-field a:hover {
-            text-decoration: underline;
-        }
-
-        .form-submit {
-            margin-top: 26px;
+        .form-actions {
+            margin-top: 22px;
             display: flex;
             align-items: center;
             gap: 18px;
             flex-wrap: wrap;
         }
 
-        .form-submit .required-note {
-            font-size: 0.78rem;
-            color: var(--muted);
+        /* Rounded gradient pill — the reference's SEND button */
+        .btn-send {
+            background: linear-gradient(135deg, var(--teal2) 0%, var(--teal) 55%, var(--teal-g) 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 999px;
+            padding: 15px 46px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 12px 28px -8px rgba(78, 201, 201, 0.6);
+            transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
         }
 
-        /* Honeypot — visually removed but still in the DOM for bots to fill.
-           Not display:none, since some bots skip those. */
+        .btn-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 34px -8px rgba(78, 201, 201, 0.78);
+            filter: brightness(1.05);
+        }
+
+        .btn-send:active { transform: translateY(0) scale(0.99); }
+
+        .btn-send:disabled {
+            opacity: 0.65;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+            filter: none;
+        }
+
+        .form-note { font-size: 0.78rem; color: var(--muted); }
+
+        /* Honeypot — off-screen but present for bots to fill */
         .hp-field {
             position: absolute;
             left: -9999px;
@@ -294,24 +348,23 @@
             overflow: hidden;
         }
 
-        @media (max-width: 900px) {
-            .contact-wrap {
+        /* Responsive */
+        @media (max-width: 860px) {
+            .contact-card {
                 grid-template-columns: 1fr;
+                padding: 16px;
+                gap: 16px;
             }
+            .contact-aside { margin: 0; }
         }
 
-        @media (max-width: 560px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            #contact-hero {
-                padding: 140px 6vw 70px;
-            }
-
-            .contact-form-panel {
-                padding: 28px 24px 24px;
-            }
+        @media (max-width: 520px) {
+            .contact-page { padding: 110px 5vw 70px; }
+            .contact-hero { margin-bottom: 32px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .contact-form-panel { padding: 26px 20px; }
+            .contact-aside { padding: 34px 26px; }
+            .btn-send { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -346,125 +399,136 @@
         </nav>
     </header>
 
-    <!-- ── CONTACT HERO ─────────────────────────────────────── -->
-    <section id="contact-hero">
-        <div class="section-tag">Get In Touch</div>
-        <h1>Connect With Our Experts</h1>
-        <p class="hero-sub">
-            Whether it's a broadcast build-out, a satellite ground segment, a defence system,
-            or a thick film materials enquiry — our team is ready to help. Reach out and
-            we'll get back to you shortly.
-        </p>
-    </section>
-
-    <!-- ── CONTACT BODY ─────────────────────────────────────── -->
-    <div class="contact-wrap">
-
-        <!-- Left: Reach Us -->
-        <div class="contact-info">
-            <h2>Reach Us</h2>
-
-            <div class="reach-item">
-                <div class="reach-label">General Enquiries</div>
-                <div class="reach-value"><a href="mailto:info@arraycom.co.in">info@arraycom.co.in</a></div>
-            </div>
-
-            <div class="reach-item">
-                <div class="reach-label">Business &amp; Partnerships</div>
-                <div class="reach-value"><a href="mailto:marketing@arraycom.co.in">marketing@arraycom.co.in</a></div>
-            </div>
-
-            <div class="reach-item">
-                <div class="reach-label">Phone</div>
-                <div class="reach-value">
-                    <a href="tel:+919327035105">+91 93270 35105</a><br>
-                    <a href="tel:+919327135128">+91 93271 35128</a>
-                </div>
-            </div>
-
-            <div class="reach-item">
-                <div class="reach-label">Corporate Address</div>
-                <div class="reach-value">
-                    Arraycom (India) Ltd.<br>
-                    Electronic Zone, GIDC<br>
-                    Gandhinagar — 382028<br>
-                    Gujarat, India
-                </div>
-            </div>
-
-             
+    <!-- ── CONTACT ─────────────────────────────────────── -->
+    <main class="contact-page">
+        <div class="contact-hero">
+            <h1>Connect With Our Experts</h1>
+            <p>Whether it's a broadcast build-out, a satellite ground segment, a defence system, or a
+                thick film materials enquiry, our team is ready to help. Reach out and we'll get back
+                to you shortly.</p>
         </div>
 
-        <!-- Right: Form -->
-        <div class="contact-form-panel">
-            <h2>Send Us a Message</h2>
-            <p>Fill in the details below and our team will get back to you shortly.</p>
+        <section class="contact-card">
 
-            <form id="arraycom-contact-form">
-                <!-- Honeypot: hidden from people. If it arrives filled, it's a bot. -->
-                <div class="hp-field" aria-hidden="true">
-                    <label for="company_website">Company website</label>
-                    <input type="text" id="company_website" name="company_website"
-                           tabindex="-1" autocomplete="off">
-                </div>
+            <!-- Left: info panel -->
+            <aside class="contact-aside">
+                <div class="aside-inner">
+                    <h2>Contact Us</h2>
+                    <p class="aside-sub">Reach us directly, or drop a message below and our team will get back to you shortly.</p>
 
-                <div class="form-grid">
-                    <div class="form-field">
-                        <label for="full-name">Full Name <span class="req">*</span></label>
-                        <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
-                    </div>
+                    <ul class="aside-list">
+                        <li>
+                            <span class="aside-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </span>
+                            <span>Electronic Zone, GIDC<br>Gandhinagar — 382028, Gujarat</span>
+                        </li>
+                        <li>
+                            <span class="aside-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </span>
+                            <a href="mailto:info@arraycom.co.in">info@arraycom.co.in</a>
+                        </li>
+                        <li>
+                            <span class="aside-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 2 .18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L6.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/></svg>
+                            </span>
+                            <a href="tel:+919327035105">+91 93270 35105</a>
+                        </li>
+                        <li>
+                            <span class="aside-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 2 .18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L6.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/></svg>
+                            </span>
+                            <a href="tel:+919327135128">+91 93271 35128</a>
+                        </li>
+                    </ul>
 
-                    <div class="form-field">
-                        <label for="email">Email Address <span class="req">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="phone">Phone Number <span class="req">*</span></label>
-                        <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="organisation">Organisation Name <span class="req">*</span></label>
-                        <input type="text" id="organisation" name="organisation" placeholder="Company / organisation" required>
-                    </div>
-
-                    <div class="form-field full">
-                        <label for="interest">How Can We Assist You? <span class="req">*</span></label>
-                        <select id="interest" name="interest" required>
-                            <option value="" selected disabled>Select an area of interest</option>
-                            <option value="satellite">Satellite Communications</option>
-                            <option value="broadcast">Broadcast &amp; Terrestrial</option>
-                            <option value="defence">Command, Control &amp; Surveillance</option>
-                            <option value="solar">Solar &amp; Clean Energy</option>
-                            <option value="tfm">Thick Film Materials</option>
-                            <option value="pcb">PCB Manufacturing</option>
-                            <option value="careers">Careers</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-field full">
-                        <label for="message">Message <span class="req">*</span></label>
-                        <textarea id="message" name="message" placeholder="Tell us a bit about your requirement..." required></textarea>
-                    </div>
-
-                    <div class="form-field full consent-field">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">
-                            I have read and agree to the <a href="#">Privacy Policy</a> and consent to
-                            Arraycom (India) Ltd. processing my data for the purpose of this enquiry. <span class="req">*</span>
-                        </label>
+                    <div class="aside-social">
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 .02-4.12 2.06 2.06 0 0 1-.02 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+                        </a>
+                        <a href="#" aria-label="X / Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.2-9.3L1 2h7.1l4.9 6.3L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+                        </a>
+                        <a href="mailto:info@arraycom.co.in" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
                     </div>
                 </div>
+            </aside>
 
-                <div class="form-submit">
-                    <button type="submit" class="cta-button" style="border:none;cursor:pointer;">Send Message</button>
-                    <span class="required-note">All fields marked * are required.</span>
-                </div>
-            </form>
-        </div>
-    </div>
+            <!-- Right: form panel -->
+            <div class="contact-form-panel">
+                <h1 class="form-heading">Get in Touch</h1>
+                <p class="form-subheading">Feel free to drop us a line below.</p>
+
+                <form id="arraycom-contact-form">
+                    <!-- Honeypot: hidden from people. If it arrives filled, it's a bot. -->
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="company_website">Company website</label>
+                        <input type="text" id="company_website" name="company_website"
+                               tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="full-name">Full Name <span class="req">*</span></label>
+                            <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="phone">Phone Number <span class="req">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="organisation">Organisation <span class="req">*</span></label>
+                            <input type="text" id="organisation" name="organisation" placeholder="Company / organisation" required>
+                        </div>
+
+                        <div class="form-field full">
+                            <label for="interest">How can we assist you? <span class="req">*</span></label>
+                            <select id="interest" name="interest" required>
+                                <option value="" selected disabled>Select an area of interest</option>
+                                <option value="satellite">Satellite Communications</option>
+                                <option value="broadcast">Broadcast &amp; Terrestrial</option>
+                                <option value="defence">Command, Control &amp; Surveillance</option>
+                                <option value="solar">Solar &amp; Clean Energy</option>
+                                <option value="tfm">Thick Film Materials</option>
+                                <option value="pcb">PCB Manufacturing</option>
+                                <option value="careers">Careers</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field full">
+                            <label for="message">Message <span class="req">*</span></label>
+                            <textarea id="message" name="message" placeholder="Tell us a bit about your requirement…" required></textarea>
+                        </div>
+
+                        <div class="form-field full consent-field">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">
+                                I have read and agree to the <a href="#">Privacy Policy</a> and consent to
+                                Arraycom (India) Ltd. processing my data for the purpose of this enquiry. <span class="req">*</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-send">Send</button>
+                        <span class="form-note">Fields marked * are required.</span>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </main>
 
     <!-- ── FOOTER ─────────────────────────────── -->
     <footer class="site-footer" id="contact">
@@ -546,7 +610,7 @@
 
     <script>
         // Paste your Apps Script Web App URL here (ends in /exec).
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWiFrOt0yGoxkabSPltvpnrn58cD0C_593CH0jrzthICwUiGLP-Jk5RYGXaQvmiMFbLA/exec';
+        const SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
 
         const form = document.getElementById('arraycom-contact-form');
         const submitBtn = form.querySelector('button[type="submit"]');
