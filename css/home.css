@@ -302,7 +302,7 @@
     ───────────────────────────────────────────── */
         .about-section {
             padding: 100px 5%;
-            background: rgba(7, 9, 26, 0.4);
+            
             opacity: 0;
             transform: translateX(-60px);
             transition: opacity 0.9s ease, transform 0.9s ease;
@@ -431,7 +431,7 @@
        BUSINESS VERTICALS
     ───────────────────────────────────────────── */
         .divisions-section {
-            background: rgba(7, 9, 26, 0.6);
+            
             padding: 80px 5%;
             text-align: center;
             opacity: 0;
@@ -553,7 +553,7 @@
         .clients-section {
             padding: 80px 0;
 
-            background: rgba(2, 6, 23, 0.7);
+           
             text-align: center;
             overflow: hidden;
             opacity: 0;
@@ -692,7 +692,7 @@
         .projects-section {
             position: relative;
             padding: 90px 5vw;
-            background: rgba(7, 12, 22, .45);
+          
             border-top: 1px solid rgba(78, 201, 201, .08);
             border-bottom: 1px solid rgba(78, 201, 201, .08);
             backdrop-filter: blur(6px);
@@ -711,7 +711,7 @@
         .projects-subtitle {
             max-width: 760px;
             margin: 18px auto 0;
-            color: var(--muted);
+            color: var(--text);
             font-size: 15px;
             line-height: 1.8;
         }
