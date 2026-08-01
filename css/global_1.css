@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =============================================================================
+   ARRAYCOM — global.css
+   Design tokens, base, buttons, and the shared section components.
+   Load this FIRST on every page (before headerfooter.css / home.css / inline).
+   ========================================================================== */
+
+:root {
+  /* --- Brand palette --- */
+  --navy:   #080E18;
+  --teal:   #4EC9C9;
+  --teal2:  #7DDADA;
+  --teal-g: #579898;
+  --blue:   #3A7AB8;
+  --amber:  #E8A020;
+
+  /* --- Text hierarchy --- */
+  --heading: #FFFFFF;   /* section + card headings */
+  --text:    #D0DFF0;   /* body copy               */
+  --slate:   #8BA8C4;   /* secondary copy          */
+  --muted:   #3D5470;   /* captions / legal        */
+  --white:   #FFFFFF;   /* (was referenced but never defined) */
+
+  /* --- Borders (were referenced by header/footer but never defined) --- */
+  --border:        #14253D;
+  --border-strong: #1E3A5F;
+
+  /* --- Functional aliases --- */
+  --brand-primary:   var(--teal);
+  --brand-secondary: var(--blue);
+  --bg-main:         var(--navy);
+  --text-main:       var(--text);
+
+  /* --- Type scale --- */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-title:  clamp(30px, 4vw, 50px);   /* one size for every section H2 */
+  --fs-lead:   clamp(15px, 1.5vw, 18px); /* intros / hero sub-copy        */
+
+  --fw-light:    300;
+  --fw-body:     400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-black:    800;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: #08121E;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ambient teal glow + navy gradient — the page signature. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 15% 30%, rgba(130,220,210,0.55) 0%, rgba(72,185,165,0.45) 35%, transparent 65%),
+    radial-gradient(ellipse 50% 55% at 40% 20%, rgba(60,158,120,0.45) 0%, rgba(40,120,90,0.25) 45%, transparent 70%),
+    radial-gradient(ellipse 45% 50% at 55% 40%, rgba(40,110,85,0.30) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 45% at 80% 35%, rgba(20,45,80,0.70) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 40% at 90% 60%, rgba(8,18,30,0.90) 0%, transparent 55%),
+    linear-gradient(135deg, #1A3040 0%, #0F2030 30%, #0A1828 55%, #0D1B44 75%, #08121E 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Subtle dot grid */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(78,201,201,0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* -----------------------------------------------------------------------------
+   SHARED SECTION COMPONENTS
+   One definition each — pages no longer redefine these.
+--------------------------------------------------------------------------- */
+
+/* Eyebrow label above a section title */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.section-tag::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-g));
+}
+
+/* Add this modifier class to drop the leading dash */
+.section-tag--no-line::before { display: none; }
+
+/* Section title — light weight with a bold teal highlight word */
+.section-title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-medium);
+  letter-spacing: -1.2px;
+  line-height: 1.08;
+  color: var(--text);
+}
+
+.section-title .hl,
+h3 .hl {
+  color: var(--teal);
+  font-weight: var(--fw-black);
+}
+
+/* -----------------------------------------------------------------------------
+   BUTTONS  (consolidated — was defined three times before)
+--------------------------------------------------------------------------- */
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--navy);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--teal2);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(78, 201, 201, 0.35);
+}
+
+.btn-secondary {
+  background: var(--brand-secondary);
+  color: #fff;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.btn-outline:hover {
+  border-color: rgba(78, 201, 201, 0.5);
+  background: rgba(78, 201, 201, 0.08);
+  color: var(--teal2);
+  transform: translateY(-2px);
+}
+
+/* Uppercase teal CTA — contact-form submit + the "Inquiry Online" banner.
+   Works on both <a> and <button> (border/cursor set here). */
+.cta-button {
+  background: var(--teal);
+  color: var(--navy);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(78, 201, 201, 0.25);
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  background: var(--teal2);
+  box-shadow: 0 4px 20px rgba(125, 218, 218, 0.4);
+}
+
+.cta-button:active { transform: scale(0.98); }
+
+.cta-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+/* -----------------------------------------------------------------------------
+   QUALITY FLOOR  — visible keyboard focus + reduced motion.
+--------------------------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--teal2);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

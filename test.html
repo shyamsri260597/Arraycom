@@ -1,222 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products and Applications</title>
-  <style>
-    /* 1. Global Page Setup */
-    body {
-      margin: 0;
-      padding: 60px 20px;
-      background-color: #040d1a; /* Dark blueprint canvas background */
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Arraycom — Gradient Background · Developer Reference</title>
+<style>
 
-    /* Section Wrapper */
-    .products-section {
-      width: 100%;
-      max-width: 1200px;
-      box-sizing: border-box;
-    }
+  /* ═══════════════════════════════════════════════════════════
+     ARRAYCOM BRAND GRADIENT — DEVELOPER REFERENCE
+     Inspired by Space Defense & Security Summit aesthetic
+     Teal · Green · Navy Blue · Near-Black
+  ═══════════════════════════════════════════════════════════ */
 
-    /* 2. Top Group Label / Section Title Styling */
-    .group-label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin: 0 0 40px 0;
-      color: #64ffda; /* Electric cyan accent text */
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+  :root {
 
-    .group-label::before,
-    .group-label::after {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background-color: #1e3a5f;
-    }
+    /* ── BASE COLOURS ────────────────────────────── */
+    --bg-base:        #08121E;   /* near-black base */
+    --bg-navy:        #0F2030;   /* deep navy mid */
+    --bg-navy-blue:   #0D1B44;   /* navy blue accent */
+    --bg-dark:        #0A1828;   /* dark transition */
 
-    /* 3. Products Grid Layout Container */
-    .products-container {
-      display: flex;
-      flex-direction: column;
-      gap: 16px; /* Clean, tight gap between rows */
-    }
+    /* ── ACCENT COLOURS ──────────────────────────── */
+    --teal-bright:    #82DCD2;   /* bright cyan-teal hotspot */
+    --teal-mid:       #48B9A5;   /* mid teal sweep */
+    --teal-primary:   #4EC9C9;   /* primary teal UI accent */
+    --teal-light:     #7DDADA;   /* light teal for headings */
+    --green-warm:     #3C9E78;   /* warm olive-green mid band */
+    --green-muted:    #287A5A;   /* muted green deep */
+    --navy-accent:    #14304E;   /* steel navy right zone */
 
-    /* 4. Individual Product Row Row Styles */
-    .product-row {
-      display: grid;
-      grid-template-columns: 350px 1fr; /* Rigid left column width, fluid right side */
-      background-color: #071324;       /* Dark navy item fill */
-      border: 1px solid #14253d;       /* Muted grid border outline */
-      border-radius: 12px;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
+    /* ── TEXT COLOURS ────────────────────────────── */
+    --text-white:     #EAF4FF;   /* headings */
+    --text-body:      #D0DFF0;   /* body copy */
+    --text-slate:     #8BA8C4;   /* supporting text */
+    --text-muted:     #3D5470;   /* muted / labels */
 
-    /* Left Column: Product Info Panel */
-    .product-info-panel {
-      padding: 24px;
-      background-color: rgba(20, 37, 61, 0.3); /* Subtle internal tint split */
-      border-right: 1px solid #14253d;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    /* ── BORDER ──────────────────────────────────── */
+    --border-teal:    rgba(78, 201, 201, 0.15);
+    --border-navy:    rgba(30, 95, 168, 0.20);
 
-    .product-title {
-      color: #ffffff;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 0 6px 0;
-    }
+  }
 
-    .product-subtitle {
-      color: #64ffda; /* Teal accent text for extra descriptions */
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin: 0;
-    }
+  /* ─────────────────────────────────────────────────────────
+     THE GRADIENT — apply to body or any full-bleed container
+     ───────────────────────────────────────────────────────── */
 
-    /* Right Column: Application Lists Wrapper */
-    .applications-panel {
-      padding: 24px;
-      display: flex;
-      flex-wrap: wrap; /* Wraps items cleanly inside the box container */
-      gap: 10px;
-      align-content: center;
-    }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #08121E; /* fallback */
 
-    /* Application Item Tags styling */
-    .app-tag {
-      background-color: #0d1f38;
-      border: 1px solid #1e3a5f;
-      color: #94a3b8; /* High readability muted gray text */
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
+    background-image:
+      radial-gradient(ellipse 60% 70% at 15% 30%,  rgba(130, 220, 210, 0.70) 0%,  rgba(72,  185, 165, 0.45) 35%, transparent 65%),
+      radial-gradient(ellipse 50% 55% at 40% 20%,  rgba(60,  158, 120, 0.45) 0%,  rgba(40,  120,  90, 0.25) 45%, transparent 70%),
+      radial-gradient(ellipse 45% 50% at 55% 40%,  rgba(40,  110,  85, 0.30) 0%,  transparent 60%),
+      radial-gradient(ellipse 40% 45% at 80% 35%,  rgba(20,   45,  80, 0.70) 0%,  transparent 60%),
+      radial-gradient(ellipse 35% 40% at 90% 60%,  rgba(8,    18,  30, 0.90) 0%,  transparent 55%),
+      linear-gradient(135deg,
+        #1A3040 0%,
+        #0F2030 30%,
+        #0A1828 55%,
+        #0D1B44 75%,
+        #08121E 100%
+      );
+  }
 
-    /* Hover interactive styling */
-    .app-tag:hover {
-      border-color: #64ffda;
-      color: #ffffff;
-      background-color: #112d4e;
-    }
+  /* ─────────────────────────────────────────────────────────
+     FIXED VERSION — for position: fixed full-page overlays
+     Use this when the gradient needs to sit behind scrolling content
+     ───────────────────────────────────────────────────────── */
 
-    /* 5. Fluid Responsive Breakdown for tablets/phones */
-    @media (max-width: 850px) {
-      .product-row {
-        grid-template-columns: 1fr; /* Stacks column boxes on top of each other */
-      }
-      .product-info-panel {
-        border-right: none;
-        border-bottom: 1px solid #14253d;
-        padding: 20px;
-      }
-      .applications-panel {
-        padding: 20px;
-      }
-    }
-  </style>
+  .gradient-fixed {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-color: #08121E;
+    background-image:
+      radial-gradient(ellipse 60% 70% at 15% 30%,  rgba(130, 220, 210, 0.70) 0%,  rgba(72,  185, 165, 0.45) 35%, transparent 65%),
+      radial-gradient(ellipse 50% 55% at 40% 20%,  rgba(60,  158, 120, 0.45) 0%,  rgba(40,  120,  90, 0.25) 45%, transparent 70%),
+      radial-gradient(ellipse 45% 50% at 55% 40%,  rgba(40,  110,  85, 0.30) 0%,  transparent 60%),
+      radial-gradient(ellipse 40% 45% at 80% 35%,  rgba(20,   45,  80, 0.70) 0%,  transparent 60%),
+      radial-gradient(ellipse 35% 40% at 90% 60%,  rgba(8,    18,  30, 0.90) 0%,  transparent 55%),
+      linear-gradient(135deg,
+        #1A3040 0%,
+        #0F2030 30%,
+        #0A1828 55%,
+        #0D1B44 75%,
+        #08121E 100%
+      );
+    pointer-events: none;
+  }
+
+  /* ─────────────────────────────────────────────────────────
+     DOT GRID OVERLAY — optional texture on top of gradient
+     ───────────────────────────────────────────────────────── */
+
+  .dot-grid {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image: radial-gradient(circle, rgba(78, 201, 201, 0.08) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* ─────────────────────────────────────────────────────────
+     DEMO — shows the gradient in use
+     ───────────────────────────────────────────────────────── */
+
+  .demo {
+    position: relative;
+    z-index: 1;
+    font-family: 'Outfit', sans-serif;
+    color: #D0DFF0;
+    padding: 80px 5vw 60px;
+  }
+
+  .demo-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    color: #4EC9C9;
+    margin-bottom: 16px;
+  }
+
+  .demo-h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #EAF4FF;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    margin: 0 0 20px;
+  }
+
+  .demo-sub {
+    font-size: 16px;
+    color: #8BA8C4;
+    max-width: 600px;
+    line-height: 1.75;
+    font-weight: 300;
+    margin: 0 0 60px;
+  }
+
+  .swatch-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(78,201,201,0.12);
+  }
+
+  .swatch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #8BA8C4;
+  }
+
+  .swatch-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <div class="products-section">
-    <!-- Header Block Component -->
-    <div class="group-label">Products &amp; Applications</div>
-    
-    <!-- Main Categories Stack Layout Container -->
-    <div class="products-container">
-      
-      <!-- Row 1: Solar Paste -->
-      <div class="product-row">
-        <div class="product-info-panel">
-          <h3 class="product-title">Solar Paste</h3>
-        </div>
-        <div class="applications-panel">
-          <span class="app-tag">Front Ag Paste</span>
-          <span class="app-tag">Back Ag Paste</span>
-          <span class="app-tag">Al Paste for PhotoVolatic cell Application</span>
-        </div>
-      </div>
+<!-- Fixed gradient layer -->
+<div class="gradient-fixed"></div>
 
-      <!-- Row 2: Conductive Paste -->
-      <div class="product-row">
-        <div class="product-info-panel">
-          <h3 class="product-title">Conductive Paste</h3>
-          <p class="product-subtitle">Ag | Pd | Pt Conductor</p>
-        </div>
-        <div class="applications-panel">
-          <span class="app-tag">Hybrid Micro Circuit</span>
-          <span class="app-tag">Mica Multilayer Ceramic Capacitors</span>
-          <span class="app-tag">Metal Oxide Varistor</span>
-          <span class="app-tag">NTC Thermistor Disc</span>
-          <span class="app-tag">PZT Application</span>
-          <span class="app-tag">Air Drying Application</span>
-        </div>
-      </div>
+<!-- Optional dot grid texture -->
+<div class="dot-grid"></div>
 
-      <!-- Row 3: Membrane Ink -->
-      <div class="product-row">
-        <div class="product-info-panel">
-          <h3 class="product-title">Membrane Ink</h3>
-        </div>
-        <div class="applications-panel">
-          <span class="app-tag">Various Types of Membrane Paste (Ink) for membrane Keypads and Keyboards</span>
-        </div>
-      </div>
+<!-- Demo content -->
+<div class="demo">
 
-      <!-- Row 4: Resistor Paste -->
-      <div class="product-row">
-        <div class="product-info-panel">
-          <h3 class="product-title">Resistor Paste</h3>
-        </div>
-        <div class="applications-panel">
-          <span class="app-tag">Thin Film Resistor</span>
-          <span class="app-tag">Chip Resistor</span>
-          <span class="app-tag">Resistor Network</span>
-          <span class="app-tag">Hybrid Micro-Circuit Application</span>
-          <span class="app-tag">Potentiometer</span>
-        </div>
-      </div>
+  <div class="demo-tag">Arraycom India Limited · Est. 1992</div>
+  <h1 class="demo-h1">We build India's broadcast,<br>satellite &amp; defence infrastructure.</h1>
+  <p class="demo-sub">30 years of delivered projects across broadcast, satellite communications, solar and advanced materials. One of India's most established system integrators — and still growing.</p>
 
-      <!-- Row 5: Overglaze Paste -->
-      <div class="product-row">
-        <div class="product-info-panel">
-          <h3 class="product-title">Overglaze Paste</h3>
-          <p class="product-subtitle">Insulation Paste</p>
-        </div>
-        <div class="applications-panel">
-          <span class="app-tag">For Hybrid Micro Circuit &amp; Other Applications</span>
-        </div>
-      </div>
-
-      <!-- Row 6: Precious Metal Powder -->
-      <div class="product-row">
-        <div class="product-info-panel">
-          <h3 class="product-title">Precious Metal Powder</h3>
-        </div>
-        <div class="applications-panel">
-          <span class="app-tag">Ag Powder &amp; Flakes</span>
-          <span class="app-tag">Pd Powder</span>
-          <span class="app-tag">Pt Powder</span>
-        </div>
-      </div>
-
+  <!-- Colour swatches for reference -->
+  <div class="swatch-row">
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#82DCD2"></div>
+      #82DCD2 · Bright Teal Hotspot
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#48B9A5"></div>
+      #48B9A5 · Mid Teal
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#4EC9C9"></div>
+      #4EC9C9 · Primary UI Teal
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#3C9E78"></div>
+      #3C9E78 · Warm Green
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#0D1B44"></div>
+      #0D1B44 · Navy Blue
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#0F2030"></div>
+      #0F2030 · Deep Navy
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#08121E"></div>
+      #08121E · Near Black Base
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#EAF4FF"></div>
+      #EAF4FF · Heading Text
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#8BA8C4"></div>
+      #8BA8C4 · Slate Text
+    </div>
+    <div class="swatch">
+      <div class="swatch-dot" style="background:#E8A020"></div>
+      #E8A020 · Amber Accent
     </div>
   </div>
+
+</div>
 
 </body>
 </html>
